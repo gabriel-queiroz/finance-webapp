@@ -2,10 +2,10 @@ import React from 'react';
 import ClipLoader from 'react-spinners/ClipLoader';
 import { Container, Title } from './styles';
 
-const Loading = () => (
-  <Container>
-    <ClipLoader sizeUnit="px" color="#ffffff" size={50} loading />
-    <Title>Carregando...</Title>
+const Loading = ({ isDashboard }) => (
+  <Container isDashboard={isDashboard}>
+    <ClipLoader sizeUnit="px" color={isDashboard ? '#1890ff' : '#ffffff'} size={50} loading />
+    {!isDashboard && <Title>Carregando...</Title>}
   </Container>
 );
 
