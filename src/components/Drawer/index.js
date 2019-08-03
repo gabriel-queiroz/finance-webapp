@@ -13,6 +13,7 @@ import {
   UserName,
   UserImage,
 } from './styles';
+import Modal from '../Modal';
 
 class Dashboard extends React.Component {
   state = {
@@ -85,6 +86,7 @@ class Dashboard extends React.Component {
 
             <Footer style={{ textAlign: 'center' }}>Desenvolvido por Gabriel Queiróz</Footer>
           </Container>
+          <Modal />
         </Container>
       </>
     );
