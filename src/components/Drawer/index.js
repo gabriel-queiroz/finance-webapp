@@ -1,5 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
+import { Fab, Action } from 'react-tiny-fab';
+import 'react-tiny-fab/dist/styles.css';
 import {
   Container,
   Header,
@@ -41,10 +43,18 @@ class Dashboard extends React.Component {
     return (
       <>
         <Container>
-          <Sider width="300" trigger={null} collapsible collapsed={this.state.collapsed}>
+          <Sider
+            width="300"
+            trigger={null}
+            collapsible
+            collapsed={this.state.collapsed}
+          >
             <SiderHeader>
               <div>
-                <img src="https://web.mobills.com.br/static/media/logo.39958c11.svg" alt="" />
+                <img
+                  src="https://web.mobills.com.br/static/media/logo.39958c11.svg"
+                  alt=""
+                />
                 {!this.state.collapsed && <h1>Firebase</h1>}
               </div>
             </SiderHeader>
@@ -84,9 +94,22 @@ class Dashboard extends React.Component {
               {this.props.children}
             </Content>
 
-            <Footer style={{ textAlign: 'center' }}>Desenvolvido por Gabriel Queiróz</Footer>
+            <Footer style={{ textAlign: 'center' }}>
+              Desenvolvido por Gabriel Queiróz
+            </Footer>
           </Container>
           <Modal />
+          <Fab
+            mainButtonStyles={{ backgroundColor: '#1890ff' }}
+            icon={<Icon type="plus" />}
+          >
+            <Action ic style={{ backgroundColor: 'green' }} text="Nova Receita">
+              <Icon type="plus" />
+            </Action>
+            <Action style={{ backgroundColor: 'red' }} text="Nova Despesa">
+              <Icon type="minus" />
+            </Action>
+          </Fab>
         </Container>
       </>
     );

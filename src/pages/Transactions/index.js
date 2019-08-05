@@ -13,7 +13,7 @@ class Transactions extends Component {
       columns: [
         {
           title: 'Data',
-          dataIndex: 'date',
+          dataIndex: 'createdAt',
           key: 'date',
         },
         {
@@ -50,14 +50,21 @@ class Transactions extends Component {
             let value = parseFloat(text);
             const isNegative = value < 0;
             value = Math.abs(value);
-            value = value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-            return <span style={isNegative ? { color: 'red' } : { color: 'blue' }}>{value}</span>;
+            value = value.toLocaleString('pt-br', {
+              style: 'currency',
+              currency: 'BRL',
+            });
+            return (
+              <span style={isNegative ? { color: 'red' } : { color: 'blue' }}>
+                {value}
+              </span>
+            );
           },
         },
         {
           title: 'Ações',
           dataIndex: 'action',
-          render: () => (
+          render: (text, row) => (
             <>
               <button
                 type="button"
@@ -67,11 +74,18 @@ class Transactions extends Component {
               >
                 <Icon
                   type="edit"
-                  style={{ fontSize: '20px', marginRight: '10px', color: '#1890ff' }}
+                  style={{
+                    fontSize: '20px',
+                    marginRight: '10px',
+                    color: '#1890ff',
+                  }}
                 />
               </button>
               <button type="button" onClick={() => alert('foo')}>
-                <Icon type="delete" style={{ fontSize: '20px', color: 'red' }} />
+                <Icon
+                  type="delete"
+                  style={{ fontSize: '20px', color: 'red' }}
+                />
               </button>
             </>
           ),
@@ -81,21 +95,21 @@ class Transactions extends Component {
   }
 
   render() {
-    const {
-      posts: { data },
-    } = this.props;
+    const { transactions, error } = this.props;
     const { columns } = this.state;
     return (
       <div>
         <h1 style={{ fontSize: '25px' }}>transações</h1>
-        <Table dataSource={data} columns={columns} />
+        {error && <span>Aconteceu um erro ao buscar</span>}
+        <Table dataSource={transactions} columns={columns} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  posts: state.transactionsReducer,
+  transactions: state.transactionsReducer.data,
+  error: state.transactionsReducer.error,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ modalOpen: modalActions.openModal }, dispatch);

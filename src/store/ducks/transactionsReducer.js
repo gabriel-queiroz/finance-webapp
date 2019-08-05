@@ -50,7 +50,7 @@ export const Types = {
 const transactionsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case Types.GET_TRANSACTIONS: {
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: null };
     }
     case Types.GET_SUCCESS_TRANSACTIONS: {
       return { ...state, data: action.payload, loading: true };

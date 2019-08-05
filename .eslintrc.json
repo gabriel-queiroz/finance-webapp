@@ -7,6 +7,7 @@
   },
   "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
+    "max-len": "off",
     "react/destructuring-assignment": "off",
     "react/prop-types": "off",
     "react/jsx-one-expression-per-line": "off",

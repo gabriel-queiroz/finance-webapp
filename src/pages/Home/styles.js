@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Statistic as StatisticAntd, Icon as IconAnt } from 'antd';
+import { Statistic as StatisticAntd } from 'antd';
+import AnimatedNumber from 'animated-number-react';
 
 export const Statistic = styled(StatisticAntd).attrs(props => ({
   decimalSeparator: ',',
@@ -17,3 +18,8 @@ export const Statistic = styled(StatisticAntd).attrs(props => ({
 export const Currency = styled.span`
   margin-left: 10px;
 `;
+
+export const AnimatedCurrency = styled(AnimatedNumber).attrs({
+  duration: 300,
+  delay: 300,
+})``;
