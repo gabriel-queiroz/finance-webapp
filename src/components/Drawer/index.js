@@ -2,6 +2,9 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Fab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Creators } from '../../store/ducks/modalReducer';
 import {
   Container,
   Header,
@@ -103,7 +106,11 @@ class Dashboard extends React.Component {
             mainButtonStyles={{ backgroundColor: '#1890ff' }}
             icon={<Icon type="plus" />}
           >
-            <Action ic style={{ backgroundColor: 'green' }} text="Nova Receita">
+            <Action
+              onClick={this.props.openModalTransation}
+              style={{ backgroundColor: 'green' }}
+              text="Nova Receita"
+            >
               <Icon type="plus" />
             </Action>
             <Action style={{ backgroundColor: 'red' }} text="Nova Despesa">
@@ -116,4 +123,9 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard;
+const mapDispatchToProps = dispatch => bindActionCreators({ openModalTransation: Creators.openModal }, dispatch);
+
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Dashboard);

@@ -1,8 +1,5 @@
 import {
-  Modal,
-  Row,
-  Col,
-  Icon,
+  Modal, Row, Col, Icon,
 } from 'antd';
 import { Field, withFormik, Form } from 'formik';
 
@@ -10,26 +7,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';
-import {
-  isRequired,
-} from '../ValidateFields/ValidateFields';
+import { isRequired } from '../ValidateFields/ValidateFields';
 import {
   AntDatePicker,
   AntInput,
   AntSelect,
 } from '../CreateAntFields/CreateAntFields';
-import * as modalActions from '../../store/ducks/modalReducer';
+import { Creators } from '../../store/ducks/modalReducer';
 import 'moment/locale/pt-br';
 
 
 moment.locale('pt-br');
 
-const Forma = ({
+const ModalTransactions = ({
   visable,
   closeModal,
   submitCount,
-  handleSubmit
+  handleSubmit,
+  accounts,
+  categories,
 }) => {
+  console.log(accounts);
+  console.log(categories);
   return (
     <div>
       <Modal
@@ -68,10 +67,7 @@ const Forma = ({
             type="close"
           />
         </header>
-        <Form
-          style={{ padding: '20px' }}
-          className="ant-advanced-search-form"
-        >
+        <Form style={{ padding: '20px' }} className="ant-advanced-search-form">
           <Row gutter={12}>
             <Col span={12}>
               <Field
@@ -113,12 +109,12 @@ const Forma = ({
           <Row gutter={24}>
             <Col span={12}>
               <Field
-               style={{width:'100%'}}
+                style={{ width: '100%' }}
                 component={AntSelect}
                 name="category"
                 label="Categoria"
                 defaultValue="Gabriel"
-                selectOptions={['Gabriel', 'Lucia', 'Daniel']}
+                selectOptions={categories}
                 validate={isRequired}
                 submitCount={submitCount}
                 tokenSeparators={[',']}
@@ -127,12 +123,12 @@ const Forma = ({
             </Col>
             <Col span={12}>
               <Field
-                style={{width:'100%'}}
+                style={{ width: '100%' }}
                 component={AntSelect}
                 name="account"
                 label="Conta"
                 defaultValue="Gabriel"
-                selectOptions={['Gabriel', 'Lucia', 'Daniel']}
+                selectOptions={accounts}
                 validate={isRequired}
                 submitCount={submitCount}
                 tokenSeparators={[',']}
@@ -147,28 +143,21 @@ const Forma = ({
 };
 const mapStateToProps = state => ({
   visable: state.modalReducer.visable,
+  accounts: state.accountsReducer.data,
+  categories: state.categoriesReducer.data,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ closeModal: modalActions.closeModal }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ closeModal: Creators.closeModal }, dispatch);
 
-const Formik = withFormik({
-  handleSubmit: () => {},
-  validate: (values, props) => {
-    const errors = {};
-    if (!values.value) {
-      errors.value = 'O valor é obrigatório';
-    }
-    if (!values.date) {
-      errors.date = 'A data é obrigatoria';
-    }
-    if (!values.description) {
-      errors.description = 'A descrição é obrigatoria';
-    }
-    return errors;
+const ModalTransactionsFormik = withFormik({
+  handleSubmit: (values) => {
+    let { date, ...rest } = values;
+    date = moment(date).toISOString();
+    const request = { date, ...rest };
   },
-})(Forma);
+})(ModalTransactions);
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Formik);
+)(ModalTransactionsFormik);

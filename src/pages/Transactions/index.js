@@ -3,7 +3,7 @@ import { Table, Icon, Tag } from 'antd';
 import 'font-awesome/css/font-awesome.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as modalActions from '../../store/ducks/modalReducer';
+import { Creators } from '../../store/ducks/modalReducer';
 
 class Transactions extends Component {
   constructor(props) {
@@ -112,7 +112,7 @@ const mapStateToProps = state => ({
   error: state.transactionsReducer.error,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ modalOpen: modalActions.openModal }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ modalOpen: Creators.openModal }, dispatch);
 
 export default connect(
   mapStateToProps,

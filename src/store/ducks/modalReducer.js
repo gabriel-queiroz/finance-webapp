@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  visable: true,
+  visable: false,
 };
 
 export const Types = {
@@ -24,14 +24,15 @@ const modalReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export const openModal = () => ({
-  type: Types.OPEN,
-  payload: true,
-});
-
-export const closeModal = () => ({
-  type: Types.CLOSE,
-  payload: false,
-});
+export const Creators = {
+  openModal: () => ({
+    type: Types.OPEN,
+    payload: true,
+  }),
+  closeModal: () => ({
+    type: Types.CLOSE,
+    payload: false,
+  }),
+};
 
 export default modalReducer;
