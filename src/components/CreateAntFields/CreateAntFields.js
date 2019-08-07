@@ -1,5 +1,7 @@
-import React from "react";
-import { DatePicker, Form, Input, TimePicker, Select } from "antd";
+import React from 'react';
+import {
+  DatePicker, Form, Input, TimePicker, Select,
+} from 'antd';
 
 const FormItem = Form.Item;
 const { Option } = Select;
@@ -19,8 +21,7 @@ const CreateAntField = AntComponent => ({
   const hasError = form.errors[field.name];
   const submittedError = hasError && submitted;
   const touchedError = hasError && touched;
-  const onInputChange = ({ target: { value } }) =>
-    form.setFieldValue(field.name, value);
+  const onInputChange = ({ target: { value } }) => form.setFieldValue(field.name, value);
   const onChange = value => form.setFieldValue(field.name, value);
   const onBlur = () => form.setFieldTouched(field.name, true);
   return (
@@ -28,10 +29,10 @@ const CreateAntField = AntComponent => ({
       <FormItem
         label={label}
         hasFeedback={
-          (hasFeedback && submitted) || (hasFeedback && touched) ? true : false
+          !!((hasFeedback && submitted) || (hasFeedback && touched))
         }
         help={submittedError || touchedError ? hasError : false}
-        validateStatus={submittedError || touchedError ? "error" : "success"}
+        validateStatus={submittedError || touchedError ? 'error' : 'success'}
       >
         <AntComponent
           {...field}
@@ -39,8 +40,10 @@ const CreateAntField = AntComponent => ({
           onBlur={onBlur}
           onChange={type ? onInputChange : onChange}
         >
-          {selectOptions &&
-            selectOptions.map(name => <Option key={name}>{name}</Option>)}
+          {selectOptions
+            && selectOptions.map(item => (
+              <Option key={item._id}>{item.name}</Option>
+            ))}
         </AntComponent>
       </FormItem>
     </div>
