@@ -1,50 +1,15 @@
 const INITIAL_STATE = {
-  data: [
-    {
-      _id: 456,
-      date: '23/11/2018',
-      description: 'Salário Mensal',
-      value: 1999.99,
-      type: 'RECIPE',
-      account: 'Nubank',
-      category: 'Almoço Empresa',
-    },
-    {
-      _id: 123,
-      date: '23/11/2011',
-      description: 'Almoço Jardim',
-      value: -12,
-      type: 'EXPENSE',
-      account: 'Nubank',
-      category: 'Almoço Empresa',
-    },
-    {
-      _id: 123,
-      date: '23/11/2011',
-      description: 'Almoço Jardim',
-      value: -12,
-      type: 'EXPENSE',
-      account: 'Nubank',
-      category: 'Almoço Empresa',
-    },
-    {
-      _id: 123,
-      date: '23/11/2011',
-      description: 'Freela react native',
-      value: 100.0,
-      type: 'RECIPE',
-      account: 'Neon',
-      category: 'Almoço Empresa',
-    },
-  ],
+  data: [],
   loading: false,
   error: null,
+  loadingTransaction: false,
 };
 
 export const Types = {
-  GET_TRANSACTIONS: 'TRANSACTIONS_SERVICE_GET',
+  GET_TRANSACTIONS: 'GET_TRANSACTIONS_SERVICE',
   GET_SUCCESS_TRANSACTIONS: 'GET_TRANSACTIONS_SUCCESS_SERVICE',
   GET_FAILURE_TRANSACTIONS: 'GET_TRANSACTIONS_FAILURE_SERVICE',
+  POST_TRANSACTION: 'POST_TRANSACTION_SERVICE',
 };
 
 const transactionsReducer = (state = INITIAL_STATE, action) => {
@@ -57,6 +22,9 @@ const transactionsReducer = (state = INITIAL_STATE, action) => {
     }
     case Types.GET_FAILURE_TRANSACTIONS: {
       return { ...state, error: action.payload, loading: false };
+    }
+    case Types.POST_TRANSACTION: {
+      return { ...state, loadingTransaction: true };
     }
     default: {
       return state;
@@ -75,6 +43,10 @@ export const Creators = {
   getFailureTransaction: errorMessage => ({
     type: Types.GET_FAILURE_TRANSACTIONS,
     payload: errorMessage,
+  }),
+  postTransaction: transaction => ({
+    type: Types.POST_TRANSACTION,
+    payload: transaction,
   }),
 };
 
