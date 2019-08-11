@@ -3,6 +3,7 @@ import { Table, Icon, Tag } from 'antd';
 import 'font-awesome/css/font-awesome.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import moment from 'moment';
 import { Creators } from '../../store/ducks/modalReducer';
 
 class Transactions extends Component {
@@ -15,6 +16,7 @@ class Transactions extends Component {
           title: 'Data',
           dataIndex: 'createdAt',
           key: 'date',
+          render: text => moment(text).format('DD/MM/YYYY'),
         },
         {
           title: 'Tipo',
@@ -98,11 +100,16 @@ class Transactions extends Component {
     const { transactions, error } = this.props;
     const { columns } = this.state;
     return (
-      <div>
+      <>
         <h1 style={{ fontSize: '25px' }}>transações</h1>
         {error && <span>Aconteceu um erro ao buscar</span>}
-        <Table dataSource={transactions} columns={columns} />
-      </div>
+        <Table
+          pagination={{ position: 'top', pageSize: 10 }}
+          dataSource={transactions}
+          scroll={{ y: 400 }}
+          columns={columns}
+        />
+      </>
     );
   }
 }
