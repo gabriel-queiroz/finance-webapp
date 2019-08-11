@@ -1,8 +1,8 @@
 import {
-  Modal, Row, Col, Icon,
+  Modal, Row, Col, Icon
 } from 'antd';
 import { Field, withFormik, Form } from 'formik';
-
+import { ModalHeader, Button, ModalHeaderTitle, ModalHeaderIconClose } from './styles';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -12,12 +12,13 @@ import {
   AntDatePicker,
   AntInput,
   AntSelect,
+  AntInputCurrency,
 } from '../CreateAntFields/CreateAntFields';
 import { Creators } from '../../store/ducks/modalReducer';
+import { Creators as TransactionsCreators } from '../../store/ducks/transactionsReducer';
 import 'moment/locale/pt-br';
-
-
 moment.locale('pt-br');
+
 
 const ModalTransactions = ({
   visable,
@@ -27,8 +28,6 @@ const ModalTransactions = ({
   accounts,
   categories,
 }) => {
-  console.log(accounts);
-  console.log(categories);
   return (
     <div>
       <Modal
@@ -36,44 +35,26 @@ const ModalTransactions = ({
         bodyStyle={{ padding: 0 }}
         closable={false}
         width="700px"
-        title={null}
         visible={visable}
-        onCancel={closeModal}
-        okText="Salvar"
-        cancelText="Cancelar"
+        footer={
+            <>
+              <Button key="back" onClick={closeModal}>Cancelar</Button>
+              <Button key="submit" onClick={handleSubmit}>Salvar</Button>
+            </>
+        }
         okButtonProps={{ style: { backgroundColor: 'green' } }}
       >
-        <header
-          style={{
-            height: '70px',
-            width: '100%',
-            backgroundColor: 'green',
-            color: '#ffffff',
-            display: 'flex',
-            padding: '10px',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-        >
-          <h1 style={{ color: '#ffffff', margin: 0 }}>Criar despesa</h1>
-          <Icon
-            onClick={closeModal}
-            style={{
-              color: '#ffffff',
-              fontWeight: 'bold',
-              fontSize: '30px',
-              cursor: 'pointer',
-            }}
-            type="close"
-          />
-        </header>
+        <ModalHeader>
+          <ModalHeaderTitle>Criar despesa</ModalHeaderTitle>
+          <ModalHeaderIconClose onClick={closeModal} type="close" />
+        </ModalHeader>
         <Form style={{ padding: '20px' }} className="ant-advanced-search-form">
           <Row gutter={12}>
             <Col span={12}>
               <Field
-                component={AntInput}
+                style={{ width: '100%' }}
+                component={AntInputCurrency}
                 name="value"
-                type="number"
                 label="Valor"
                 validate={isRequired}
                 submitCount={submitCount}
@@ -85,8 +66,10 @@ const ModalTransactions = ({
                 style={{ width: '100%' }}
                 placeholder="Selecione a data"
                 component={AntDatePicker}
-                name="date"
+                name="createdAt"
+                format="DD/MM/YYYY"
                 label="Data"
+                today={false}
                 validate={isRequired}
                 submitCount={submitCount}
                 hasFeedback
@@ -145,15 +128,21 @@ const mapStateToProps = state => ({
   visable: state.modalReducer.visable,
   accounts: state.accountsReducer.data,
   categories: state.categoriesReducer.data,
+  loading: state.transactionsReducer.loadingTransaction,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ closeModal: Creators.closeModal }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ closeModal: Creators.closeModal, postTransaction: TransactionsCreators.postTransaction,}, dispatch);
+
 
 const ModalTransactionsFormik = withFormik({
-  handleSubmit: (values) => {
-    let { date, ...rest } = values;
-    date = moment(date).toISOString();
-    const request = { date, ...rest };
+  handleSubmit: (values, { props: { postTransaction } }) => {
+    let { createdAt, ...rest } = values;
+    createdAt = moment(createdAt).toISOString();
+    delete rest.accounts;
+    delete rest.categories;
+    delete rest.visable;
+    const transaction = { createdAt, ...rest, type: 'RECIPE' };
+    postTransaction(transaction);
   },
 })(ModalTransactions);
 
