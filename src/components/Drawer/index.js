@@ -4,7 +4,9 @@ import { Fab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { ToastContainer, toast } from 'react-toastify';
 import { Creators } from '../../store/ducks/modalReducer';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Container,
   Header,
@@ -61,7 +63,7 @@ class Dashboard extends React.Component {
                 {!this.state.collapsed && <h1>Firebase</h1>}
               </div>
             </SiderHeader>
-            <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+            <Menu theme="dark" mode="inline" defaultSelectedKeys={['0']}>
               <Menu.Item key="0" onClick={() => push('/')}>
                 <Icon type="home" />
                 <span>Home</span>
@@ -92,11 +94,11 @@ class Dashboard extends React.Component {
                 padding: 24,
                 background: '#fff',
                 minHeight: 280,
+                height: 'auto',
               }}
             >
               {this.props.children}
             </Content>
-
             <Footer style={{ textAlign: 'center' }}>
               Desenvolvido por Gabriel Queiróz
             </Footer>
@@ -118,6 +120,7 @@ class Dashboard extends React.Component {
             </Action>
           </Fab>
         </Container>
+        <ToastContainer />
       </>
     );
   }
