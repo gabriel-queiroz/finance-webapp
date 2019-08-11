@@ -2,6 +2,7 @@ const INITIAL_STATE = {
   data: [],
   loading: false,
   error: null,
+  errorPostTransaction: null,
   loadingTransaction: false,
 };
 
@@ -10,6 +11,8 @@ export const Types = {
   GET_SUCCESS_TRANSACTIONS: 'GET_TRANSACTIONS_SUCCESS_SERVICE',
   GET_FAILURE_TRANSACTIONS: 'GET_TRANSACTIONS_FAILURE_SERVICE',
   POST_TRANSACTION: 'POST_TRANSACTION_SERVICE',
+  POST_FAILURE_TRANSACTION: 'POST_TRANSACTION_FAILURE_SERVICE',
+  POST_SUCCESS_TRANSACTION: 'POST_TRANSACTION_SUCCESS_SERVICE',
 };
 
 const transactionsReducer = (state = INITIAL_STATE, action) => {
@@ -47,6 +50,13 @@ export const Creators = {
   postTransaction: transaction => ({
     type: Types.POST_TRANSACTION,
     payload: transaction,
+  }),
+  postSuccessTransaction: () => ({
+    type: Types.POST_SUCCESS_TRANSACTION,
+  }),
+  postFailureTransaction: error => ({
+    type: Types.POST_TRANSACTION_FAILURE,
+    payload: error,
   }),
 };
 
