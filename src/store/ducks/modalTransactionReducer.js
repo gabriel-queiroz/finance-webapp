@@ -7,7 +7,7 @@ export const Types = {
   CLOSE: 'modal/CLOSE',
 };
 
-const modalReducer = (state = INITIAL_STATE, action) => {
+const modalTransactionReducer = (state = INITIAL_STATE, action) => {
   console.log(action);
   switch (action.type) {
     case Types.OPEN: {
@@ -35,4 +35,4 @@ export const Creators = {
   }),
 };
 
-export default modalReducer;
+export default modalTransactionReducer;

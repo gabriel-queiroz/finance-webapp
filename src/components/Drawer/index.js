@@ -5,7 +5,7 @@ import 'react-tiny-fab/dist/styles.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ToastContainer, toast } from 'react-toastify';
-import { Creators } from '../../store/ducks/modalReducer';
+import { Creators as modalTransactioCreators } from '../../store/ducks/modalTransactionReducer';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   Container,
@@ -20,7 +20,7 @@ import {
   UserName,
   UserImage,
 } from './styles';
-import Modal from '../Modal';
+import ModalTransaction from '../ModalTransaction';
 
 class Dashboard extends React.Component {
   state = {
@@ -103,7 +103,7 @@ class Dashboard extends React.Component {
               Desenvolvido por Gabriel Queiróz
             </Footer>
           </Container>
-          <Modal />
+          <ModalTransaction />
           <Fab
             mainButtonStyles={{ backgroundColor: '#1890ff' }}
             icon={<Icon type="plus" />}
@@ -126,7 +126,10 @@ class Dashboard extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ openModalTransation: Creators.openModal }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  { openModalTransation: modalTransactioCreators.openModal },
+  dispatch,
+);
 
 export default connect(
   null,

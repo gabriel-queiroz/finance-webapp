@@ -14,13 +14,13 @@ import {
   AntSelect,
   AntInputCurrency,
 } from '../CreateAntFields/CreateAntFields';
-import { Creators } from '../../store/ducks/modalReducer';
+import { Creators } from '../../store/ducks/modalTransactionReducer';
 import { Creators as TransactionsCreators } from '../../store/ducks/transactionsReducer';
 import 'moment/locale/pt-br';
 moment.locale('pt-br');
 
 
-const ModalTransactions = ({
+const ModalTransaction = ({
   visable,
   closeModal,
   submitCount,
@@ -125,7 +125,7 @@ const ModalTransactions = ({
   );
 };
 const mapStateToProps = state => ({
-  visable: state.modalReducer.visable,
+  visable: state.modalTransactionReducer.visable,
   accounts: state.accountsReducer.data,
   categories: state.categoriesReducer.data,
   loading: state.transactionsReducer.loadingTransaction,
@@ -144,7 +144,7 @@ const ModalTransactionsFormik = withFormik({
     const transaction = { createdAt, ...rest, type: 'RECIPE' };
     postTransaction(transaction);
   },
-})(ModalTransactions);
+})(ModalTransaction);
 
 export default connect(
   mapStateToProps,

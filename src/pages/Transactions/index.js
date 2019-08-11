@@ -4,7 +4,7 @@ import 'font-awesome/css/font-awesome.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';
-import { Creators } from '../../store/ducks/modalReducer';
+import { Creators as modalTransactionCreators } from '../../store/ducks/modalTransactionReducer';
 
 class Transactions extends Component {
   constructor(props) {
@@ -119,7 +119,10 @@ const mapStateToProps = state => ({
   error: state.transactionsReducer.error,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ modalOpen: Creators.openModal }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  { modalOpen: modalTransactionCreators.openModal },
+  dispatch,
+);
 
 export default connect(
   mapStateToProps,

@@ -2,11 +2,11 @@ import { combineReducers } from 'redux';
 import transactionsReducer from './transactionsReducer';
 import categoriesReducer from './categoriesReducer';
 import accountsReducer from './accountsReducer';
-import modalReducer from './modalReducer';
+import modalTransactionReducer from './modalTransactionReducer';
 
 const reducers = combineReducers({
   transactionsReducer,
-  modalReducer,
+  modalTransactionReducer,
   categoriesReducer,
   accountsReducer,
 });
