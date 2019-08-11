@@ -5,7 +5,10 @@ import 'react-tiny-fab/dist/styles.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { ToastContainer, toast } from 'react-toastify';
-import { Creators as modalTransactioCreators } from '../../store/ducks/modalTransactionReducer';
+import {
+  Creators as modalTransactioCreators,
+  ModalTransactionTypes,
+} from '../../store/ducks/modalTransactionReducer';
 import 'react-toastify/dist/ReactToastify.css';
 import {
   Container,
@@ -109,13 +112,19 @@ class Dashboard extends React.Component {
             icon={<Icon type="plus" />}
           >
             <Action
-              onClick={this.props.openModalTransation}
+              onClick={() => this.props.openModalTransation(ModalTransactionTypes.RECIPE)
+              }
               style={{ backgroundColor: 'green' }}
               text="Nova Receita"
             >
               <Icon type="plus" />
             </Action>
-            <Action style={{ backgroundColor: 'red' }} text="Nova Despesa">
+            <Action
+              onClick={() => this.props.openModalTransation(ModalTransactionTypes.EXPENSE)
+              }
+              style={{ backgroundColor: 'red' }}
+              text="Nova Despesa"
+            >
               <Icon type="minus" />
             </Action>
           </Fab>

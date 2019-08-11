@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
   visable: false,
+  transactionType: '',
 };
 
 export const Types = {
@@ -7,15 +8,17 @@ export const Types = {
   CLOSE: 'modal/CLOSE',
 };
 
+export const ModalTransactionTypes = {
+  RECIPE: 'TRANSACTION_RECIPE',
+  EXPENSE: 'TRANSACTION_EXPENSE',
+};
+
 const modalTransactionReducer = (state = INITIAL_STATE, action) => {
-  console.log(action);
   switch (action.type) {
     case Types.OPEN: {
-      console.log('entrou aqui2');
-      return { ...state, visable: action.payload };
+      return { ...state, ...action.payload };
     }
     case Types.CLOSE: {
-      console.log('entrou aqui');
       return { ...state, visable: action.payload };
     }
     default: {
@@ -25,9 +28,12 @@ const modalTransactionReducer = (state = INITIAL_STATE, action) => {
 };
 
 export const Creators = {
-  openModal: () => ({
+  openModal: transactionType => ({
     type: Types.OPEN,
-    payload: true,
+    payload: {
+      visable: true,
+      transactionType,
+    },
   }),
   closeModal: () => ({
     type: Types.CLOSE,

@@ -4,7 +4,7 @@ import { Button as ButtonAnt, Icon } from 'antd';
 export const ModalHeader = styled.header`
   height: 70px;
   width: 100%;
-  background-color: green;
+  background-color: ${props => props.theme.primary};
   color: #ffffff;
   display: flex;
   padding: 10px;
@@ -25,6 +25,7 @@ export const ModalHeaderIconClose = styled(Icon)`
 `;
 
 export const Button = styled(ButtonAnt)`
-  background-color: green !important;
+  background-color: ${props => props.theme.primary} !important;
   color: #ffffff !important;
+  outline: none;
 `;
