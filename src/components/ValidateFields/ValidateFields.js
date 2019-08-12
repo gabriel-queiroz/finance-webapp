@@ -1,30 +1,30 @@
-import moment from "moment";
-import { dateFormat } from "../FieldFormats/FieldFormats";
+import moment from 'moment';
+import { dateFormat } from '../FieldFormats/FieldFormats';
 
-export const validateDate = value => {
+export const validateDate = (value) => {
   let errors;
 
   if (!value) {
-    errors = "Required!";
+    errors = 'Campo Obrigátorio!';
   } else if (
     moment(value).format(dateFormat) < moment(Date.now()).format(dateFormat)
   ) {
-    errors = "Invalid date!";
+    errors = 'Data inválida!';
   }
 
   return errors;
 };
 
-export const validateEmail = value => {
+export const validateEmail = (value) => {
   let errors;
 
   if (!value) {
-    errors = "Required!";
+    errors = 'Campo obrigátorio!';
   } else if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
-    errors = "Invalid email address!";
+    errors = 'Invalid email address!';
   }
 
   return errors;
 };
 
-export const isRequired = value => (!value ? "Required!" : "");
+export const isRequired = value => (!value ? 'Campo obrigátorio!' : '');
