@@ -2,9 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.css';
 import { Fab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import {
   Creators as modalTransactioCreators,
   ModalTransactionTypes,
@@ -24,11 +22,23 @@ import {
   UserImage,
 } from './styles';
 import ModalTransaction from '../ModalTransaction';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Creators as transactionsCreators } from '../../store/ducks/transactionsReducer';
+import { Creators as categoriesCreators } from '../../store/ducks/categoriesReducer';
+import { Creators as accountsCreators } from '../../store/ducks/accountsReducer';
 
 class Dashboard extends React.Component {
   state = {
     collapsed: true,
   };
+
+  componentDidMount() {
+    const { getTransactions, getAccounts, getCategories } = this.props;
+    getTransactions();
+    getAccounts();
+    getCategories();
+  }
 
   toggle = () => {
     this.setState({
@@ -136,7 +146,12 @@ class Dashboard extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  { openModalTransation: modalTransactioCreators.openModal },
+  {
+    openModalTransation: modalTransactioCreators.openModal,
+    getTransactions: transactionsCreators.getTransactions,
+    getAccounts: accountsCreators.getAccounts,
+    getCategories: categoriesCreators.getCategories,
+  },
   dispatch,
 );
 

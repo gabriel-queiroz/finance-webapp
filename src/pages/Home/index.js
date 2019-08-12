@@ -2,21 +2,10 @@ import React, { Component } from 'react';
 import {
   Card, Row, Col, Icon,
 } from 'antd';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import { Statistic, AnimatedCurrency } from './styles';
-import { Creators as transactionsCreators } from '../../store/ducks/transactionsReducer';
-import { Creators as categoriesCreators } from '../../store/ducks/categoriesReducer';
-import { Creators as accountsCreators } from '../../store/ducks/accountsReducer';
 
 class Home extends Component {
-  componentDidMount() {
-    const { getTransactions, getAccounts, getCategories } = this.props;
-    getTransactions();
-    getAccounts();
-    getCategories();
-    console.log(this.props);
-  }
+  componentDidMount() {}
 
   formatValue = value => value.toLocaleString('pt-br', {
     style: 'currency',
@@ -101,17 +90,4 @@ class Home extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators(
-  {
-    getTransactions: transactionsCreators.getTransactions,
-    getAccounts: accountsCreators.getAccounts,
-    getCategories: categoriesCreators.getCategories,
-  },
-
-  dispatch,
-);
-
-export default connect(
-  null,
-  mapDispatchToProps,
-)(Home);
+export default Home;
