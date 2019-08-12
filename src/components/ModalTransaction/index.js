@@ -109,7 +109,7 @@ const ModalTransaction = ({
                 name="category"
                 label="Categoria"
                 defaultValue="Gabriel"
-                selectOptions={categories}
+                selectOptions={ modalTransactionType === ModalTransactionTypes.RECIPE ? categories.recipe : categories.expense}
                 validate={isRequired}
                 submitCount={submitCount}
                 tokenSeparators={[',']}
