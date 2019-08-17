@@ -1,18 +1,16 @@
-import {
-  Modal, Row, Col
-} from 'antd';
+import { Modal, Row, Col } from 'antd';
 import { Field, withFormik, Form } from 'formik';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';
+import { ThemeProvider } from 'styled-components';
 import {
   ModalHeader,
   Button,
   ModalHeaderTitle,
   ModalHeaderIconClose,
 } from './styles';
-import { ThemeProvider } from 'styled-components';
 import { isRequired } from '../ValidateFields/ValidateFields';
 import {
   AntDatePicker,
@@ -20,7 +18,10 @@ import {
   AntSelect,
   AntInputCurrency,
 } from '../CreateAntFields/CreateAntFields';
-import { Creators, ModalTransactionTypes } from '../../store/ducks/modalTransactionReducer';
+import {
+  Creators,
+  ModalTransactionTypes,
+} from '../../store/ducks/modalTransactionReducer';
 import { Creators as TransactionsCreators } from '../../store/ducks/transactionsReducer';
 import 'moment/locale/pt-br';
 
@@ -34,10 +35,15 @@ const ModalTransaction = ({
   accounts,
   categories,
   modalTransactionType,
-}) => {
-  return (
-    <div>
-      <ThemeProvider theme={ modalTransactionType === ModalTransactionTypes.RECIPE ? { primary:'green'} : { primary:'red'}   }>
+}) => (
+  <div>
+    <ThemeProvider
+      theme={
+        modalTransactionType === ModalTransactionTypes.RECIPE
+          ? { primary: 'green' }
+          : { primary: 'red' }
+      }
+    >
       <Modal
         onOk={handleSubmit}
         bodyStyle={{ padding: 0 }}
@@ -57,7 +63,11 @@ const ModalTransaction = ({
         okButtonProps={{ style: { backgroundColor: 'green' } }}
       >
         <ModalHeader>
-          <ModalHeaderTitle>{modalTransactionType === ModalTransactionTypes.RECIPE ? 'Criar Receita':'Criar despesa'} </ModalHeaderTitle>
+          <ModalHeaderTitle>
+            {modalTransactionType === ModalTransactionTypes.RECIPE
+              ? 'Criar Receita'
+              : 'Criar despesa'}{' '}
+          </ModalHeaderTitle>
           <ModalHeaderIconClose onClick={closeModal} type="close" />
         </ModalHeader>
         <Form style={{ padding: '20px' }} className="ant-advanced-search-form">
@@ -109,7 +119,11 @@ const ModalTransaction = ({
                 name="category"
                 label="Categoria"
                 defaultValue="Gabriel"
-                selectOptions={ modalTransactionType === ModalTransactionTypes.RECIPE ? categories.recipe : categories.expense}
+                selectOptions={
+                  modalTransactionType === ModalTransactionTypes.RECIPE
+                    ? categories.recipe
+                    : categories.expense
+                }
                 validate={isRequired}
                 submitCount={submitCount}
                 tokenSeparators={[',']}
@@ -133,10 +147,9 @@ const ModalTransaction = ({
           </Row>
         </Form>
       </Modal>
-      </ThemeProvider>
-    </div>
-  );
-};
+    </ThemeProvider>
+  </div>
+);
 const mapStateToProps = state => ({
   visable: state.modalTransactionReducer.visable,
   modalTransactionType: state.modalTransactionReducer.transactionType,
@@ -154,13 +167,13 @@ const mapDispatchToProps = dispatch => bindActionCreators(
 );
 
 const ModalTransactionsFormik = withFormik({
-  handleSubmit: (values, { props: { postTransaction } }) => {
+  handleSubmit: (values, { props: { postTransaction, modalTransactionType } }) => {
     let { createdAt, ...rest } = values;
     createdAt = moment(createdAt).toISOString();
     delete rest.accounts;
     delete rest.categories;
     delete rest.visable;
-    const transaction = { createdAt, ...rest, type: 'RECIPE' };
+    const transaction = { createdAt, ...rest, type: modalTransactionType   };
     postTransaction(transaction);
   },
 })(ModalTransaction);
