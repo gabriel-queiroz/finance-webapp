@@ -3,6 +3,8 @@ import 'antd/dist/antd.css';
 import { Fab, Action } from 'react-tiny-fab';
 import 'react-tiny-fab/dist/styles.css';
 import { ToastContainer } from 'react-toastify';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 import {
   Creators as modalTransactioCreators,
   ModalTransactionTypes,
@@ -22,8 +24,7 @@ import {
   UserImage,
 } from './styles';
 import ModalTransaction from '../ModalTransaction';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+
 import { Creators as transactionsCreators } from '../../store/ducks/transactionsReducer';
 import { Creators as categoriesCreators } from '../../store/ducks/categoriesReducer';
 import { Creators as accountsCreators } from '../../store/ducks/accountsReducer';

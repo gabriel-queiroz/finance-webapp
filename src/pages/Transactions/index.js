@@ -48,7 +48,6 @@ class Transactions extends Component {
           dataIndex: 'value',
           key: 'value',
           render: (text) => {
-            console.log(`value :${text}`);
             let value = parseFloat(text);
             const isNegative = value < 0;
             value = Math.abs(value);
@@ -66,7 +65,7 @@ class Transactions extends Component {
         {
           title: 'Ações',
           dataIndex: 'action',
-          render: (text, row) => (
+          render: () => (
             <>
               <button
                 type="button"
