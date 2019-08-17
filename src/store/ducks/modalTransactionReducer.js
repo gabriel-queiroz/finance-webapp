@@ -9,8 +9,8 @@ export const Types = {
 };
 
 export const ModalTransactionTypes = {
-  RECIPE: 'TRANSACTION_RECIPE',
-  EXPENSE: 'TRANSACTION_EXPENSE',
+  RECIPE: 'RECIPE',
+  EXPENSE: 'EXPENSE',
 };
 
 const modalTransactionReducer = (state = INITIAL_STATE, action) => {
