@@ -1,0 +1,1235 @@
+[
+  {
+    "Data": "29/06/2019",
+    "Descrição": "Comer fora",
+    "Valor": "-80,00",
+    "Conta": "Nubank",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "29/06/2019",
+    "Descrição": "Lucinha médico",
+    "Valor": "-100,00",
+    "Conta": "Nubank",
+    "Categoria": "Outros",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "26/06/2019",
+    "Descrição": "almoço jardim",
+    "Valor": "-19,80",
+    "Conta": "Carteira",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "25/06/2019",
+    "Descrição": "Alternativo bananeiras / João pessoa",
+    "Valor": "-40,00",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "25/06/2019",
+    "Descrição": "bolo phobeus",
+    "Valor": "-19,50",
+    "Conta": "Carteira",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "25/06/2019",
+    "Descrição": "gastos bobos carteira",
+    "Valor": "-17,50",
+    "Conta": "Carteira",
+    "Categoria": "Outros",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "24/06/2019",
+    "Descrição": "pastel pizzaria",
+    "Valor": "-6,00",
+    "Conta": "Carteira",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "23/06/2019",
+    "Descrição": "lanche lanchonete roma",
+    "Valor": "-13,00",
+    "Conta": "Neon",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "22/06/2019",
+    "Descrição": "gastos bobos carteira",
+    "Valor": "-5,26",
+    "Conta": "Carteira",
+    "Categoria": "Outros",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "22/06/2019",
+    "Descrição": "combustivel pálio",
+    "Valor": "-50,00",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "22/06/2019",
+    "Descrição": "passagem João Pessoa/Bananeiras",
+    "Valor": "-28,50",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "22/06/2019",
+    "Descrição": "Recarga celular",
+    "Valor": "-15,00",
+    "Conta": "Neon",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "22/06/2019",
+    "Descrição": "moto-taxi bananeiras",
+    "Valor": "-4,00",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "21/06/2019",
+    "Descrição": "almoço jardim",
+    "Valor": "-19,14",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "20/06/2019",
+    "Descrição": "barbearia",
+    "Valor": "-20,00",
+    "Conta": "Neon",
+    "Categoria": "Cuidados Pessoais",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "20/06/2019",
+    "Descrição": "pizza jantar",
+    "Valor": "-23,00",
+    "Conta": "Carteira",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "20/06/2019",
+    "Descrição": "alternativo santa rita",
+    "Valor": "-5,00",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "20/06/2019",
+    "Descrição": "pilhas controle xbox",
+    "Valor": "-7,00",
+    "Conta": "Carteira",
+    "Categoria": "Games",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "20/06/2019",
+    "Descrição": "lanche padaria santa rita",
+    "Valor": "-7,50",
+    "Conta": "Carteira",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "19/06/2019",
+    "Descrição": "Almoço chinês",
+    "Valor": "-21,35",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "18/06/2019",
+    "Descrição": "assinatura ea access",
+    "Valor": "-19,90",
+    "Conta": "Neon",
+    "Categoria": "Games",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "18/06/2019",
+    "Descrição": "Almoço chinês",
+    "Valor": "-18,60",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "17/06/2019",
+    "Descrição": "almoço jardim",
+    "Valor": "-14,94",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "15/06/2019",
+    "Descrição": "Café da manhã mercado",
+    "Valor": "-17,98",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "15/06/2019",
+    "Descrição": "Lanche burguer king",
+    "Valor": "-49,80",
+    "Conta": "Neon",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "15/06/2019",
+    "Descrição": "presente mãe",
+    "Valor": "-17,40",
+    "Conta": "Neon",
+    "Categoria": "Presente",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "15/06/2019",
+    "Descrição": "pós barba azulen",
+    "Valor": "-34,90",
+    "Conta": "Neon",
+    "Categoria": "Cuidados Pessoais",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "13/06/2019",
+    "Descrição": "Alimentação empresa",
+    "Valor": "-21,35",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "13/06/2019",
+    "Descrição": "Presente dias dos namorados",
+    "Valor": "-204,99",
+    "Conta": "Neon",
+    "Categoria": "Presente",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "12/06/2019",
+    "Descrição": "Almoço ifood Chinês",
+    "Valor": "-20,99",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "11/06/2019",
+    "Descrição": "Almoço chinês",
+    "Valor": "-21,35",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "10/06/2019",
+    "Descrição": "Pagamento televisão",
+    "Valor": "-215,00",
+    "Conta": "Neon",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "10/06/2019",
+    "Descrição": "Parcela oculos",
+    "Valor": "-106,00",
+    "Conta": "Neon",
+    "Categoria": "Roupa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "10/06/2019",
+    "Descrição": "parcela celular",
+    "Valor": "-120,00",
+    "Conta": "Neon",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "10/06/2019",
+    "Descrição": "Café da manhã phoebus",
+    "Valor": "-8,00",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "10/06/2019",
+    "Descrição": "Almoço phoebus",
+    "Valor": "-8,70",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "09/06/2019",
+    "Descrição": "microsoft xbox",
+    "Valor": "-1,00",
+    "Conta": "Neon",
+    "Categoria": "Games",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "08/06/2019",
+    "Descrição": "Coca-cola",
+    "Valor": "-6,49",
+    "Conta": "Neon",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "07/06/2019",
+    "Descrição": "Almoço chinês",
+    "Valor": "-14,25",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "06/06/2019",
+    "Descrição": "Café da manhã phoebus",
+    "Valor": "-7,00",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "06/06/2019",
+    "Descrição": "Almoço chinês",
+    "Valor": "-14,60",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "06/06/2019",
+    "Descrição": "Assinatura internet",
+    "Valor": "-80,00",
+    "Conta": "Neon",
+    "Categoria": "Assinaturas",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "06/06/2019",
+    "Descrição": "pilhas controle xbox",
+    "Valor": "-12,90",
+    "Conta": "Neon",
+    "Categoria": "Games",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "05/06/2019",
+    "Descrição": "Salário referente ao mês de maio",
+    "Valor": "1885,57",
+    "Conta": "Nubank",
+    "Categoria": "Salário",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "05/06/2019",
+    "Descrição": "Almoço phoebus",
+    "Valor": "-19,34",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "05/06/2019",
+    "Descrição": "curso rocketseat",
+    "Valor": "-36,00",
+    "Conta": "Nubank",
+    "Categoria": "Educação",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "04/06/2019",
+    "Descrição": "Açaí velha",
+    "Valor": "-7,00",
+    "Conta": "Carteira",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "03/06/2019",
+    "Descrição": "Recarga celular",
+    "Valor": "-15,00",
+    "Conta": "Neon",
+    "Categoria": "Outros",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "03/06/2019",
+    "Descrição": "Coca-cola farmácia",
+    "Valor": "-4,00",
+    "Conta": "Carteira",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "03/06/2019",
+    "Descrição": "Uber qualitare phoebus",
+    "Valor": "-10,74",
+    "Conta": "Carteira",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "03/06/2019",
+    "Descrição": "Lanche velha phoebus",
+    "Valor": "-8,00",
+    "Conta": "Carteira",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "03/06/2019",
+    "Descrição": "Alternativo bananeiras / João pessoa",
+    "Valor": "-40,00",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "02/06/2019",
+    "Descrição": "Valor carteira",
+    "Valor": "75,00",
+    "Conta": "Carteira",
+    "Categoria": "Outros",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "31/07/2019",
+    "Descrição": "café manhã conveniência",
+    "Valor": "-11,00",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "31/07/2019",
+    "Descrição": "Recarga celular",
+    "Valor": "-10,00",
+    "Conta": "Neon",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "31/07/2019",
+    "Descrição": "Almoço jardim",
+    "Valor": "-9,60",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "30/07/2019",
+    "Descrição": "Açaí velha",
+    "Valor": "-7,00",
+    "Conta": "Carteira",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "29/07/2019",
+    "Descrição": "Alternativo bananeiras / João pessoa",
+    "Valor": "-40,00",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "29/07/2019",
+    "Descrição": "passagem João Pessoa/Bananeiras",
+    "Valor": "-27,50",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "29/07/2019",
+    "Descrição": "Presente dias dos namorados",
+    "Valor": "-50,00",
+    "Conta": "Nubank",
+    "Categoria": "Presente",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "29/07/2019",
+    "Descrição": "horas extras primeiro semestre",
+    "Valor": "112,40",
+    "Conta": "Nubank",
+    "Categoria": "Salário",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "26/07/2019",
+    "Descrição": "Almoço chinês",
+    "Valor": "-18,62",
+    "Conta": "Carteira",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "25/07/2019",
+    "Descrição": "Subway almoço",
+    "Valor": "-11,50",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "25/07/2019",
+    "Descrição": "Recarga celular",
+    "Valor": "-10,00",
+    "Conta": "Neon",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "25/07/2019",
+    "Descrição": "uber lazer ida",
+    "Valor": "-15,50",
+    "Conta": "Neon",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "25/07/2019",
+    "Descrição": "uber lazer volta",
+    "Valor": "-14,18",
+    "Conta": "Neon",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "25/07/2019",
+    "Descrição": "compras lanche fd bananeiras atacadão",
+    "Valor": "-29,93",
+    "Conta": "Neon",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "25/07/2019",
+    "Descrição": "serviço josé americo",
+    "Valor": "-160,00",
+    "Conta": "Neon",
+    "Categoria": "Lazer",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "24/07/2019",
+    "Descrição": "assinatura ea access",
+    "Valor": "-19,90",
+    "Conta": "Neon",
+    "Categoria": "Games",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "24/07/2019",
+    "Descrição": "Almoço jardim",
+    "Valor": "-12,36",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "23/07/2019",
+    "Descrição": "Café da manhã phoebus",
+    "Valor": "-5,50",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "23/07/2019",
+    "Descrição": "Almoço jardim",
+    "Valor": "-12,24",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "22/07/2019",
+    "Descrição": "Almoço jardim",
+    "Valor": "-11,82",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "21/07/2019",
+    "Descrição": "Hamburguer",
+    "Valor": "-26,00",
+    "Conta": "Carteira",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "20/07/2019",
+    "Descrição": "barbearia",
+    "Valor": "-20,00",
+    "Conta": "Neon",
+    "Categoria": "Cuidados Pessoais",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "20/07/2019",
+    "Descrição": "Recarga celular",
+    "Valor": "-10,00",
+    "Conta": "Neon",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "19/07/2019",
+    "Descrição": "Almoço chinês",
+    "Valor": "-18,62",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "19/07/2019",
+    "Descrição": "almoço velha phoebus",
+    "Valor": "-15,00",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "19/07/2019",
+    "Descrição": "pizza jantar",
+    "Valor": "-25,50",
+    "Conta": "Carteira",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "18/07/2019",
+    "Descrição": "almoço tambia",
+    "Valor": "-25,75",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "18/07/2019",
+    "Descrição": "trufa cacau show",
+    "Valor": "-8,75",
+    "Conta": "Neon",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "18/07/2019",
+    "Descrição": "tenis tambia",
+    "Valor": "-54,99",
+    "Conta": "Neon",
+    "Categoria": "Roupa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "17/07/2019",
+    "Descrição": "Recarga celular",
+    "Valor": "-10,00",
+    "Conta": "Neon",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "17/07/2019",
+    "Descrição": "almoço jardim",
+    "Valor": "-14,46",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "15/07/2019",
+    "Descrição": "Alternativo bananeiras / João pessoa",
+    "Valor": "-40,00",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "15/07/2019",
+    "Descrição": "Lanche noite phoebus",
+    "Valor": "-20,00",
+    "Conta": "Carteira",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "15/07/2019",
+    "Descrição": "Assinatura internet",
+    "Valor": "-80,00",
+    "Conta": "Neon",
+    "Categoria": "Assinaturas",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "13/07/2019",
+    "Descrição": "Tratamento Lucinha",
+    "Valor": "-200,00",
+    "Conta": "Nubank",
+    "Categoria": "Presente",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "13/07/2019",
+    "Descrição": "moto-taxi bananeiras",
+    "Valor": "-5,00",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "13/07/2019",
+    "Descrição": "passagem João Pessoa/Bananeiras",
+    "Valor": "-27,50",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "12/07/2019",
+    "Descrição": "Pizza noite",
+    "Valor": "-23,00",
+    "Conta": "Carteira",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "12/07/2019",
+    "Descrição": "Almoço chinês",
+    "Valor": "-17,23",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "12/07/2019",
+    "Descrição": "Coxinha café da manhã",
+    "Valor": "-11,00",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "11/07/2019",
+    "Descrição": "Subway almoço",
+    "Valor": "-11,50",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "11/07/2019",
+    "Descrição": "curso rocketseat",
+    "Valor": "-28,00",
+    "Conta": "Nubank",
+    "Categoria": "Educação",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "11/07/2019",
+    "Descrição": "Almoço chinês centro",
+    "Valor": "-25,00",
+    "Conta": "Carteira",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "10/07/2019",
+    "Descrição": "Parcela oculos",
+    "Valor": "-106,00",
+    "Conta": "Nubank",
+    "Categoria": "Roupa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "10/07/2019",
+    "Descrição": "fone de ouvido novo",
+    "Valor": "-40,00",
+    "Conta": "Carteira",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "10/07/2019",
+    "Descrição": "Recarga celular",
+    "Valor": "-15,00",
+    "Conta": "Neon",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "09/07/2019",
+    "Descrição": "almoço jardim",
+    "Valor": "-13,00",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "08/07/2019",
+    "Descrição": "Almoço chinês",
+    "Valor": "-21,35",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "07/07/2019",
+    "Descrição": "Presente dias dos namorados",
+    "Valor": "-50,00",
+    "Conta": "Nubank",
+    "Categoria": "Presente",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "07/07/2019",
+    "Descrição": "diferença conta neon",
+    "Valor": "6,55",
+    "Conta": "Neon",
+    "Categoria": "Outros",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "06/07/2019",
+    "Descrição": "almoço meu e manoel sábado extra",
+    "Valor": "-30,00",
+    "Conta": "Nubank",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "05/07/2019",
+    "Descrição": "café manhã conveniência",
+    "Valor": "-8,00",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "05/07/2019",
+    "Descrição": "confra empress Sal e Brasa",
+    "Valor": "-64,15",
+    "Conta": "Neon",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "04/07/2019",
+    "Descrição": "café manhã conveniência",
+    "Valor": "-11,00",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "04/07/2019",
+    "Descrição": "almoço jardim",
+    "Valor": "-13,00",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "03/07/2019",
+    "Descrição": "Reajuste de saldo",
+    "Valor": "-14,55",
+    "Conta": "Nubank",
+    "Categoria": "Reajuste",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "03/07/2019",
+    "Descrição": "Reajuste de saldo",
+    "Valor": "-12,68",
+    "Conta": "Neon",
+    "Categoria": "Reajuste",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "03/07/2019",
+    "Descrição": "Reajuste de saldo",
+    "Valor": "-22,20",
+    "Conta": "Carteira",
+    "Categoria": "Reajuste",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "03/07/2019",
+    "Descrição": "Salário junho/2019",
+    "Valor": "1885,57",
+    "Conta": "Nubank",
+    "Categoria": "Salário",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "02/07/2019",
+    "Descrição": "parcela celular",
+    "Valor": "-119,90",
+    "Conta": "Nubank",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "02/07/2019",
+    "Descrição": "Pagamento televisão",
+    "Valor": "-205,00",
+    "Conta": "Nubank",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "15/08/2019",
+    "Descrição": "Assinatura internet",
+    "Valor": "-80,00",
+    "Conta": "Nubank",
+    "Categoria": "Assinaturas",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "14/08/2019",
+    "Descrição": "Mochila para xbox",
+    "Valor": "-70,00",
+    "Conta": "Carteira",
+    "Categoria": "Roupa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "10/08/2019",
+    "Descrição": "Compra não idenficada",
+    "Valor": "-14,00",
+    "Conta": "Carteira",
+    "Categoria": "Reajuste",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "10/08/2019",
+    "Descrição": "Pão padaria",
+    "Valor": "-1,50",
+    "Conta": "Carteira",
+    "Categoria": "Alimentação",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "10/08/2019",
+    "Descrição": "Corte cabelo",
+    "Valor": "-15,00",
+    "Conta": "Carteira",
+    "Categoria": "Cuidados Pessoais",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "10/08/2019",
+    "Descrição": "Passagem ônibus Santa rita",
+    "Valor": "-2,50",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "09/08/2019",
+    "Descrição": "Salgados conveniência",
+    "Valor": "-12,00",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "09/08/2019",
+    "Descrição": "almoço jardim",
+    "Valor": "-15,84",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "08/08/2019",
+    "Descrição": "Diferença feira do mês",
+    "Valor": "-50,00",
+    "Conta": "Carteira",
+    "Categoria": "Alimentação",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "08/08/2019",
+    "Descrição": "Sorvete phoebus",
+    "Valor": "-30,00",
+    "Conta": "Carteira",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "08/08/2019",
+    "Descrição": "Empréstimo jusceir",
+    "Valor": "-700,00",
+    "Conta": "Nubank",
+    "Categoria": "Outros",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "08/08/2019",
+    "Descrição": "curso rocketseat",
+    "Valor": "-20,00",
+    "Conta": "Carteira",
+    "Categoria": "Educação",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "08/08/2019",
+    "Descrição": "almoço jardim",
+    "Valor": "-12,78",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "07/08/2019",
+    "Descrição": "Açaí velha",
+    "Valor": "-7,00",
+    "Conta": "Carteira",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "07/08/2019",
+    "Descrição": "Almoço jardim",
+    "Valor": "-9,30",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "06/08/2019",
+    "Descrição": "Alternativo bananeiras / João pessoa",
+    "Valor": "-40,00",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "04/08/2019",
+    "Descrição": "Coca-cola",
+    "Valor": "-10,00",
+    "Conta": "Carteira",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "03/08/2019",
+    "Descrição": "passagem João Pessoa/Bananeiras",
+    "Valor": "-27,50",
+    "Conta": "Carteira",
+    "Categoria": "Transporte",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "02/08/2019",
+    "Descrição": "parcela celular",
+    "Valor": "-119,90",
+    "Conta": "Nubank",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "02/08/2019",
+    "Descrição": "Pagamento televisão",
+    "Valor": "-215,00",
+    "Conta": "Nubank",
+    "Categoria": "Eletrônicos",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "02/08/2019",
+    "Descrição": "almoço jardim",
+    "Valor": "-17,50",
+    "Conta": "Neon",
+    "Categoria": "Alimentação empresa",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "02/08/2019",
+    "Descrição": "salario",
+    "Valor": "1971,69",
+    "Conta": "Nubank",
+    "Categoria": "Salário",
+    "Subcategoria": "",
+    "Tags": ""
+  },
+  {
+    "Data": "01/08/2019",
+    "Descrição": "Massa e queijo para pastel final de semana",
+    "Valor": "-50,00",
+    "Conta": "Carteira",
+    "Categoria": "Comer fora",
+    "Subcategoria": "",
+    "Tags": ""
+  }
+]
