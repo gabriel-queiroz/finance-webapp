@@ -8,8 +8,12 @@ import { connect } from 'react-redux';
 import {
   Creators as modalTransactioCreators,
   ModalTransactionTypes,
-} from '../../store/ducks/modalTransactionReducer';
+} from 'store/ducks/modalTransactionReducer';
 import 'react-toastify/dist/ReactToastify.css';
+import ModalTransaction from 'components/ModalTransaction';
+import { Creators as transactionsCreators } from 'store/ducks/transactionsReducer';
+import { Creators as categoriesCreators } from 'store/ducks/categoriesReducer';
+import { Creators as accountsCreators } from 'store/ducks/accountsReducer';
 import {
   Container,
   Header,
@@ -23,11 +27,6 @@ import {
   UserName,
   UserImage,
 } from './styles';
-import ModalTransaction from '../ModalTransaction';
-
-import { Creators as transactionsCreators } from '../../store/ducks/transactionsReducer';
-import { Creators as categoriesCreators } from '../../store/ducks/categoriesReducer';
-import { Creators as accountsCreators } from '../../store/ducks/accountsReducer';
 
 class Dashboard extends React.Component {
   state = {

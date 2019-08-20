@@ -4,7 +4,7 @@ import 'font-awesome/css/font-awesome.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';
-import { Creators as modalTransactionCreators } from '../../store/ducks/modalTransactionReducer';
+import { Creators as modalTransactionCreators } from 'store/ducks/modalTransactionReducer';
 
 class Transactions extends Component {
   constructor(props) {

@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadingComponent from '../components/Loading';
+import LoadingComponent from 'components/Loading';
 
 export const Loading = ({ error, retry, pastDelay }) => {
   if (error) {

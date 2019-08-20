@@ -21,8 +21,8 @@ import {
 import {
   Creators,
   ModalTransactionTypes,
-} from '../../store/ducks/modalTransactionReducer';
-import { Creators as TransactionsCreators } from '../../store/ducks/transactionsReducer';
+} from 'store/ducks/modalTransactionReducer';
+import { Creators as TransactionsCreators } from 'store/ducks/transactionsReducer';
 import 'moment/locale/pt-br';
 
 moment.locale('pt-br');

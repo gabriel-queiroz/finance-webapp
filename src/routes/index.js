@@ -9,27 +9,27 @@ import PrivateRoute from './PrivateRoute';
 
 
 const Login = Loadable({
-  loader: () => import('../pages/Login'),
+  loader: () => import('pages/Login'),
   loading: Loading,
 });
 
 const Dashboard = Loadable({
-  loader: () => import('../components/Drawer'),
+  loader: () => import('components/Drawer'),
   loading: Loading,
 });
 
 const Home = Loadable({
-  loader: () => import('../pages/Home'),
+  loader: () => import('pages/Home'),
   loading: LoadingDashboard,
 });
 
 const Transactions = Loadable({
-  loader: () => import('../pages/Transactions'),
+  loader: () => import('pages/Transactions'),
   loading: LoadingDashboard,
 });
 
 const Accounts = Loadable({
-  loader: () => import('../pages/Accounts'),
+  loader: () => import('pages/Accounts'),
   loading: LoadingDashboard,
 });
 

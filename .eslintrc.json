@@ -26,5 +26,12 @@
       }
     ],
     "no-unused-expressions": ["error", { "allowTaggedTemplates": true }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
   }
 }

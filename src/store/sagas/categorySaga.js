@@ -1,6 +1,6 @@
 import { call, put } from 'redux-saga/effects';
-import http from '../../services/http';
-import { Creators } from '../ducks/categoriesReducer';
+import { Creators } from 'store/ducks/categoriesReducer';
+import http from 'services/http';
 
 export default function* getCategories() {
   try {

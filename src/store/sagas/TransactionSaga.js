@@ -1,8 +1,8 @@
 import { call, put } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
-import http from '../../services/http';
-import { Creators as TransactionsCreators } from '../ducks/transactionsReducer';
-import { Creators as ModalTrasactionCreators } from '../ducks/modalTransactionReducer';
+import { Creators as TransactionsCreators } from 'store/ducks/transactionsReducer';
+import http from 'services/http';
+import { Creators as ModalTrasactionCreators } from 'store/ducks/modalTransactionReducer';
 
 export function* getTransactions() {
   try {
