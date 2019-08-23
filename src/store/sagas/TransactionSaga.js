@@ -21,6 +21,7 @@ export function* postTransaction(action) {
     yield put(TransactionsCreators.postSuccessTransaction());
     toast.success('Transação criada com sucesso!');
   } catch (error) {
+    toast.error('Ops erro ao criar transação');
     yield put(TransactionsCreators.postFailureTransaction(error));
   }
 }

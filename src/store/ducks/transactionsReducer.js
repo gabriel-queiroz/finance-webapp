@@ -21,13 +21,19 @@ const transactionsReducer = (state = INITIAL_STATE, action) => {
       return { ...state, loading: true, error: null };
     }
     case Types.GET_SUCCESS_TRANSACTIONS: {
-      return { ...state, data: action.payload, loading: true };
+      return { ...state, ...action.payload };
     }
     case Types.GET_FAILURE_TRANSACTIONS: {
-      return { ...state, error: action.payload, loading: false };
+      return { ...state, error: action.payload };
     }
     case Types.POST_TRANSACTION: {
-      return { ...state, loadingTransaction: true };
+      return { ...state, loading: true };
+    }
+    case Types.POST_SUCCESS_TRANSACTION: {
+      return { ...state, ...action.payload };
+    }
+    case Types.POST_FAILURE_TRANSACTION: {
+      return { ...state, ...action.payload };
     }
     default: {
       return state;
@@ -41,7 +47,7 @@ export const Creators = {
   }),
   getSuccessTransactions: transactions => ({
     type: Types.GET_SUCCESS_TRANSACTIONS,
-    payload: transactions,
+    payload: { data: transactions, loading: false },
   }),
   getFailureTransaction: errorMessage => ({
     type: Types.GET_FAILURE_TRANSACTIONS,
@@ -53,10 +59,11 @@ export const Creators = {
   }),
   postSuccessTransaction: () => ({
     type: Types.POST_SUCCESS_TRANSACTION,
+    payload: { loading: false },
   }),
   postFailureTransaction: error => ({
-    type: Types.POST_TRANSACTION_FAILURE,
-    payload: error,
+    type: Types.POST_FAILURE_TRANSACTION,
+    payload: { error, loading: false },
   }),
 };
 
