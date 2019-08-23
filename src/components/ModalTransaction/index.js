@@ -6,6 +6,11 @@ import { bindActionCreators } from 'redux';
 import moment from 'moment';
 import { ThemeProvider } from 'styled-components';
 import {
+  Creators,
+  ModalTransactionTypes,
+} from 'store/ducks/modalTransactionReducer';
+import { Creators as TransactionsCreators } from 'store/ducks/transactionsReducer';
+import {
   ModalHeader,
   Button,
   ModalHeaderTitle,
@@ -18,11 +23,6 @@ import {
   AntSelect,
   AntInputCurrency,
 } from '../CreateAntFields/CreateAntFields';
-import {
-  Creators,
-  ModalTransactionTypes,
-} from 'store/ducks/modalTransactionReducer';
-import { Creators as TransactionsCreators } from 'store/ducks/transactionsReducer';
 import 'moment/locale/pt-br';
 
 moment.locale('pt-br');
@@ -35,6 +35,8 @@ const ModalTransaction = ({
   accounts,
   categories,
   modalTransactionType,
+  resetForm,
+  transactionLoading,
 }) => (
   <div>
     <ThemeProvider
@@ -45,17 +47,28 @@ const ModalTransaction = ({
       }
     >
       <Modal
-        onOk={handleSubmit}
         bodyStyle={{ padding: 0 }}
         closable={false}
         width="700px"
         visible={visable}
         footer={(
           <>
-            <Button key="back" onClick={closeModal}>
+            <Button
+              key="back"
+              onClick={() => {
+                resetForm();
+                closeModal();
+              }}
+            >
               Cancelar
             </Button>
-            <Button key="submit" onClick={handleSubmit}>
+            <Button
+              loading={transactionLoading}
+              key="submit"
+              onClick={() => {
+                handleSubmit();
+              }}
+            >
               Salvar
             </Button>
           </>
@@ -68,7 +81,13 @@ const ModalTransaction = ({
               ? 'Criar Receita'
               : 'Criar despesa'}{' '}
           </ModalHeaderTitle>
-          <ModalHeaderIconClose onClick={closeModal} type="close" />
+          <ModalHeaderIconClose
+            onClick={() => {
+              resetForm();
+              closeModal();
+            }}
+            type="close"
+          />
         </ModalHeader>
         <Form style={{ padding: '20px' }} className="ant-advanced-search-form">
           <Row gutter={12}>
@@ -152,10 +171,10 @@ const ModalTransaction = ({
 );
 const mapStateToProps = state => ({
   visable: state.modalTransactionReducer.visable,
+  transactionLoading: state.transactionsReducer.loading,
   modalTransactionType: state.modalTransactionReducer.transactionType,
   accounts: state.accountsReducer.data,
   categories: state.categoriesReducer.data,
-  loading: state.transactionsReducer.loadingTransaction,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
@@ -167,13 +186,16 @@ const mapDispatchToProps = dispatch => bindActionCreators(
 );
 
 const ModalTransactionsFormik = withFormik({
-  handleSubmit: (values, { props: { postTransaction, modalTransactionType } }) => {
+  handleSubmit: (
+    values,
+    { props: { postTransaction, modalTransactionType } },
+  ) => {
     let { createdAt, ...rest } = values;
     createdAt = moment(createdAt).toISOString();
     delete rest.accounts;
     delete rest.categories;
     delete rest.visable;
-    const transaction = { createdAt, ...rest, type: modalTransactionType   };
+    const transaction = { createdAt, ...rest, type: modalTransactionType };
     postTransaction(transaction);
   },
 })(ModalTransaction);
