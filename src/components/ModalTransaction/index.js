@@ -172,6 +172,7 @@ const ModalTransaction = ({
 const mapStateToProps = state => ({
   visable: state.modalTransactionReducer.visable,
   transactionLoading: state.transactionsReducer.loading,
+  initialValues: state.modalTransactionReducer.data,
   modalTransactionType: state.modalTransactionReducer.transactionType,
   accounts: state.accountsReducer.data,
   categories: state.categoriesReducer.data,
@@ -186,6 +187,9 @@ const mapDispatchToProps = dispatch => bindActionCreators(
 );
 
 const ModalTransactionsFormik = withFormik({
+  mapPropsToValues: (props) => {
+    return {...props.initialValues}
+  },
   handleSubmit: (
     values,
     { props: { postTransaction, modalTransactionType } },
