@@ -5,9 +5,8 @@ import { Input } from 'antd';
 const InputCurrency = ({ onChange, onBlur, value }) => (
   <NumberFormat
     customInput={Input}
-    thousandSeparator="."
     decimalSeparator=","
-    value={value}
+    value={Math.abs(value)}
     decimalScale={2}
     prefix="R$ "
     onValueChange={(values) => {

@@ -13,6 +13,9 @@ export const Types = {
   POST_TRANSACTION: 'POST_TRANSACTION_SERVICE',
   POST_FAILURE_TRANSACTION: 'POST_TRANSACTION_FAILURE_SERVICE',
   POST_SUCCESS_TRANSACTION: 'POST_TRANSACTION_SUCCESS_SERVICE',
+  UPDATE_TRANSACTION: 'UPDATE_TRANSACTION_SERVICE',
+  UPDATE_FAILURE_TRANSACTION: 'UPDATE_TRANSACTION_FAILURE_SERVICE',
+  UPDATE_SUCCESS_TRANSACTION: 'UPDATE_TRANSACTION_SUCCESS_SERVICE',
 };
 
 const transactionsReducer = (state = INITIAL_STATE, action) => {
@@ -33,6 +36,15 @@ const transactionsReducer = (state = INITIAL_STATE, action) => {
       return { ...state, ...action.payload };
     }
     case Types.POST_FAILURE_TRANSACTION: {
+      return { ...state, ...action.payload };
+    }
+    case Types.UPDATE_TRANSACTION: {
+      return { ...state, loading: true };
+    }
+    case Types.UPDATE_SUCCESS_TRANSACTION: {
+      return { ...state, loading: false };
+    }
+    case Types.UPDATE_FAILURE_TRANSACTION: {
       return { ...state, ...action.payload };
     }
     default: {
@@ -63,6 +75,18 @@ export const Creators = {
   }),
   postFailureTransaction: error => ({
     type: Types.POST_FAILURE_TRANSACTION,
+    payload: { error, loading: false },
+  }),
+  updateTransaction: transaction => ({
+    type: Types.UPDATE_TRANSACTION,
+    payload: transaction,
+  }),
+  updateSuccessTransaction: () => ({
+    type: Types.UPDATE_SUCCESS_TRANSACTION,
+    payload: { loading: false },
+  }),
+  updateFailureTransaction: error => ({
+    type: Types.UPDATE_FAILURE_TRANSACTION,
     payload: { error, loading: false },
   }),
 };

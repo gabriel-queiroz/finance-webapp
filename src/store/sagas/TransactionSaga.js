@@ -21,7 +21,20 @@ export function* postTransaction(action) {
     yield put(TransactionsCreators.postSuccessTransaction());
     toast.success('Transação criada com sucesso!');
   } catch (error) {
-    toast.error('Ops erro ao criar transação');
+    toast.error('Ops erro ao atualizar transação');
     yield put(TransactionsCreators.postFailureTransaction(error));
+  }
+}
+
+export function* updateTransaction({ payload: { _id, ...transaction } }) {
+  try {
+    yield call(http.put, `/transactions/${_id}`, transaction);
+    yield put(ModalTrasactionCreators.closeModal());
+    yield put(TransactionsCreators.updateSuccessTransaction());
+    toast.success('Transação atualizada com sucesso!');
+    yield put(TransactionsCreators.getTransactions());
+  } catch (error) {
+    toast.error('Ops erro ao criar transação');
+    yield put(TransactionsCreators.updateFailureTransaction(error));
   }
 }

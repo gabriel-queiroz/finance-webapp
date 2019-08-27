@@ -37,7 +37,11 @@ const ModalTransaction = ({
   modalTransactionType,
   resetForm,
   transactionLoading,
-}) => (
+  values,
+  isEdit,
+}) => {
+  console.log(values);
+return(
   <div>
     <ThemeProvider
       theme={
@@ -78,8 +82,7 @@ const ModalTransaction = ({
         <ModalHeader>
           <ModalHeaderTitle>
             {modalTransactionType === ModalTransactionTypes.RECIPE
-              ? 'Criar Receita'
-              : 'Criar despesa'}{' '}
+              ? isEdit ? 'Editar Receita': 'Criar Receita' : isEdit ? 'Editar Despesa':'Criar Despesa'} 
           </ModalHeaderTitle>
           <ModalHeaderIconClose
             onClick={() => {
@@ -168,11 +171,12 @@ const ModalTransaction = ({
       </Modal>
     </ThemeProvider>
   </div>
-);
+)};
 const mapStateToProps = state => ({
   visable: state.modalTransactionReducer.visable,
   transactionLoading: state.transactionsReducer.loading,
-  initialValues: state.modalTransactionReducer.data,
+  initialValues: state.modalTransactionReducer.transaction,
+  isEdit: state.modalTransactionReducer.isEdit,
   modalTransactionType: state.modalTransactionReducer.transactionType,
   accounts: state.accountsReducer.data,
   categories: state.categoriesReducer.data,
@@ -182,17 +186,19 @@ const mapDispatchToProps = dispatch => bindActionCreators(
   {
     closeModal: Creators.closeModal,
     postTransaction: TransactionsCreators.postTransaction,
+    updateTransaction: TransactionsCreators.updateTransaction,
   },
   dispatch,
 );
 
 const ModalTransactionsFormik = withFormik({
+  enableReinitialize: true,
   mapPropsToValues: (props) => {
-    return {...props.initialValues}
+    return { ...props.initialValues }
   },
   handleSubmit: (
     values,
-    { props: { postTransaction, modalTransactionType } },
+    { props: { postTransaction, updateTransaction, modalTransactionType } },
   ) => {
     let { createdAt, ...rest } = values;
     createdAt = moment(createdAt).toISOString();
@@ -200,7 +206,13 @@ const ModalTransactionsFormik = withFormik({
     delete rest.categories;
     delete rest.visable;
     const transaction = { createdAt, ...rest, type: modalTransactionType };
-    postTransaction(transaction);
+
+    if(transaction._id){
+      updateTransaction(transaction);
+    }
+    else{
+      postTransaction(transaction);
+    }
   },
 })(ModalTransaction);
 

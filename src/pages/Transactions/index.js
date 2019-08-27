@@ -37,11 +37,17 @@ class Transactions extends Component {
           title: 'Categoria',
           dataIndex: 'category',
           key: 'category',
+          render: (text) => (
+             `${text.name}`
+          )
         },
         {
           title: 'Conta',
           dataIndex: 'account',
           key: 'account',
+          render: (text) => (
+            `${text.name}`
+         )
         },
         {
           title: 'Valor',
@@ -65,12 +71,12 @@ class Transactions extends Component {
         {
           title: 'Ações',
           dataIndex: 'action',
-          render: () => (
+          render: (text, transaction) => (
             <>
               <button
                 type="button"
                 onClick={() => {
-                  this.props.modalOpen();
+                  this.props.modalOpen(transaction.type, transaction, true);
                 }}
               >
                 <Icon
@@ -82,7 +88,7 @@ class Transactions extends Component {
                   }}
                 />
               </button>
-              <button type="button" onClick={() => alert('foo')}>
+              <button type="button">
                 <Icon
                   type="delete"
                   style={{ fontSize: '20px', color: 'red' }}
