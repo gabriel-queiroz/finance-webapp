@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';
 import { Creators as modalTransactionCreators } from 'store/ducks/modalTransactionReducer';
-
+import { Creators as modalTransactionDeleteCreators } from 'store/ducks/modalTransactionDeleteReducer';
 class Transactions extends Component {
   constructor(props) {
     super(props);
@@ -88,8 +88,9 @@ class Transactions extends Component {
                   }}
                 />
               </button>
-              <button type="button">
+              <button onClick={() => this.props.modalDeleteOpen(transaction)} type="button">
                 <Icon
+                
                   type="delete"
                   style={{ fontSize: '20px', color: 'red' }}
                 />
@@ -125,7 +126,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  { modalOpen: modalTransactionCreators.openModal },
+  { modalOpen: modalTransactionCreators.openModal, modalDeleteOpen: modalTransactionDeleteCreators.open },
   dispatch,
 );
 

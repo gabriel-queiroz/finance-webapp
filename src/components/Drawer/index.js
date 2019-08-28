@@ -11,10 +11,12 @@ import {
 } from 'store/ducks/modalTransactionReducer';
 import 'react-toastify/dist/ReactToastify.css';
 import ModalTransaction from 'components/ModalTransaction';
+import ModalTransactionDelete from '../ModalTransactionDelete';
 import { Creators as transactionsCreators } from 'store/ducks/transactionsReducer';
 import { Creators as categoriesCreators } from 'store/ducks/categoriesReducer';
 import { Creators as accountsCreators } from 'store/ducks/accountsReducer';
 import {
+
   Container,
   Header,
   Sider,
@@ -117,6 +119,7 @@ class Dashboard extends React.Component {
             </Footer>
           </Container>
           <ModalTransaction />
+          <ModalTransactionDelete />
           <Fab
             mainButtonStyles={{ backgroundColor: '#1890ff' }}
             icon={<Icon type="plus" />}
