@@ -1,4 +1,3 @@
-import { formatCurrencyBRL } from './strings';
+import { formatCurrencyBRL, maskMoney, BRLtoFloat } from './strings';
 
-
-export { formatCurrencyBRL };
+export { formatCurrencyBRL, maskMoney, BRLtoFloat };

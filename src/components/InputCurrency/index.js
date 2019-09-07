@@ -1,20 +1,10 @@
 import React from 'react';
-import NumberFormat from 'react-number-format';
+import { maskMoney } from 'helpers';
 import { Input } from 'antd';
 
-const InputCurrency = ({ onChange, onBlur, value }) => (
-  <NumberFormat
-    customInput={Input}
-    decimalSeparator=","
-    value={Math.abs(value)}
-    decimalScale={2}
-    prefix="R$ "
-    onValueChange={(values) => {
-      const { value, floatValue } = values;
-      onChange(floatValue);
-    }}
-    onBlur={onBlur}
-  />
-);
+const InputCurrency = ({ onChange, value, onBlur}) => (<Input  value={value} onBlur={onBlur} onChange={(e) => {
+  const {value} = e.target;
+  onChange(maskMoney(value))
+}}/>)
 
 export default InputCurrency;
