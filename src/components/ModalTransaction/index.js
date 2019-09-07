@@ -24,6 +24,7 @@ import {
   AntInputCurrency,
 } from '../CreateAntFields/CreateAntFields';
 import 'moment/locale/pt-br';
+import { maskMoney, BRLtoFloat } from 'helpers';
 
 moment.locale('pt-br');
 
@@ -205,7 +206,7 @@ const ModalTransactionsFormik = withFormik({
     delete rest.accounts;
     delete rest.categories;
     delete rest.visable;
-    const transaction = { createdAt, ...rest, type: modalTransactionType };
+    const transaction = { createdAt, ...rest, type: modalTransactionType, value: BRLtoFloat(rest.value) };
 
     if(transaction._id){
       updateTransaction(transaction);
