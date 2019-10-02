@@ -8,7 +8,18 @@ export const formatCurrencyBRL = (value) => {
   return '';
 };
 
+
+
+
+
+
+
+
+
+
+
 export const BRLtoFloat = (currency) => {
+  console.tron.log(currency);
   const value = currency.replace(',', '.').replace('R$', '');
 
   return parseFloat(value);

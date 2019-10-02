@@ -10,6 +10,7 @@ import {
   ModalTransactionTypes,
 } from 'store/ducks/modalTransactionReducer';
 import { Creators as TransactionsCreators } from 'store/ducks/transactionsReducer';
+import { BRLtoFloat } from 'helpers';
 import {
   ModalHeader,
   Button,
@@ -24,7 +25,6 @@ import {
   AntInputCurrency,
 } from '../CreateAntFields/CreateAntFields';
 import 'moment/locale/pt-br';
-import { maskMoney, BRLtoFloat } from 'helpers';
 
 moment.locale('pt-br');
 
@@ -56,13 +56,14 @@ return(
         closable={false}
         width="700px"
         visible={visable}
+        destroyOnClose={true}
         footer={(
           <>
             <Button
               key="back"
               onClick={() => {
-                resetForm();
                 closeModal();
+                resetForm();
               }}
             >
               Cancelar
@@ -195,7 +196,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(
 const ModalTransactionsFormik = withFormik({
   enableReinitialize: true,
   mapPropsToValues: (props) => {
-    return { ...props.initialValues }
+      return { ...props.initialValues }
   },
   handleSubmit: (
     values,
