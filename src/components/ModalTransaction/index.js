@@ -6,6 +6,12 @@ import { bindActionCreators } from 'redux';
 import moment from 'moment';
 import { ThemeProvider } from 'styled-components';
 import {
+  Creators,
+  ModalTransactionTypes,
+} from 'store/ducks/modalTransactionReducer';
+import { Creators as TransactionsCreators } from 'store/ducks/transactionsReducer';
+import { BRLtoFloat } from 'helpers';
+import {
   ModalHeader,
   Button,
   ModalHeaderTitle,
@@ -18,11 +24,6 @@ import {
   AntSelect,
   AntInputCurrency,
 } from '../CreateAntFields/CreateAntFields';
-import {
-  Creators,
-  ModalTransactionTypes,
-} from 'store/ducks/modalTransactionReducer';
-import { Creators as TransactionsCreators } from 'store/ducks/transactionsReducer';
 import 'moment/locale/pt-br';
 
 moment.locale('pt-br');
@@ -35,7 +36,13 @@ const ModalTransaction = ({
   accounts,
   categories,
   modalTransactionType,
-}) => (
+  resetForm,
+  transactionLoading,
+  values,
+  isEdit,
+}) => {
+  console.log(values);
+return(
   <div>
     <ThemeProvider
       theme={
@@ -45,17 +52,29 @@ const ModalTransaction = ({
       }
     >
       <Modal
-        onOk={handleSubmit}
         bodyStyle={{ padding: 0 }}
         closable={false}
         width="700px"
         visible={visable}
+        destroyOnClose={true}
         footer={(
           <>
-            <Button key="back" onClick={closeModal}>
+            <Button
+              key="back"
+              onClick={() => {
+                closeModal();
+                resetForm();
+              }}
+            >
               Cancelar
             </Button>
-            <Button key="submit" onClick={handleSubmit}>
+            <Button
+              loading={transactionLoading}
+              key="submit"
+              onClick={() => {
+                handleSubmit();
+              }}
+            >
               Salvar
             </Button>
           </>
@@ -65,10 +84,15 @@ const ModalTransaction = ({
         <ModalHeader>
           <ModalHeaderTitle>
             {modalTransactionType === ModalTransactionTypes.RECIPE
-              ? 'Criar Receita'
-              : 'Criar despesa'}{' '}
+              ? isEdit ? 'Editar Receita': 'Criar Receita' : isEdit ? 'Editar Despesa':'Criar Despesa'} 
           </ModalHeaderTitle>
-          <ModalHeaderIconClose onClick={closeModal} type="close" />
+          <ModalHeaderIconClose
+            onClick={() => {
+              resetForm();
+              closeModal();
+            }}
+            type="close"
+          />
         </ModalHeader>
         <Form style={{ padding: '20px' }} className="ant-advanced-search-form">
           <Row gutter={12}>
@@ -149,32 +173,48 @@ const ModalTransaction = ({
       </Modal>
     </ThemeProvider>
   </div>
-);
+)};
 const mapStateToProps = state => ({
   visable: state.modalTransactionReducer.visable,
+  transactionLoading: state.transactionsReducer.loading,
+  initialValues: state.modalTransactionReducer.transaction,
+  isEdit: state.modalTransactionReducer.isEdit,
   modalTransactionType: state.modalTransactionReducer.transactionType,
   accounts: state.accountsReducer.data,
   categories: state.categoriesReducer.data,
-  loading: state.transactionsReducer.loadingTransaction,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
   {
     closeModal: Creators.closeModal,
     postTransaction: TransactionsCreators.postTransaction,
+    updateTransaction: TransactionsCreators.updateTransaction,
   },
   dispatch,
 );
 
 const ModalTransactionsFormik = withFormik({
-  handleSubmit: (values, { props: { postTransaction, modalTransactionType } }) => {
+  enableReinitialize: true,
+  mapPropsToValues: (props) => {
+      return { ...props.initialValues }
+  },
+  handleSubmit: (
+    values,
+    { props: { postTransaction, updateTransaction, modalTransactionType } },
+  ) => {
     let { createdAt, ...rest } = values;
     createdAt = moment(createdAt).toISOString();
     delete rest.accounts;
     delete rest.categories;
     delete rest.visable;
-    const transaction = { createdAt, ...rest, type: modalTransactionType   };
-    postTransaction(transaction);
+    const transaction = { createdAt, ...rest, type: modalTransactionType, value: BRLtoFloat(rest.value) };
+
+    if(transaction._id){
+      updateTransaction(transaction);
+    }
+    else{
+      postTransaction(transaction);
+    }
   },
 })(ModalTransaction);
 
