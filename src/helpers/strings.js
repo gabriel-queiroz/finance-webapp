@@ -1,4 +1,4 @@
-export const formatCurrencyBRL = (value) => {
+export const formatCurrencyBRL = value => {
   if (value) {
     return `R$ ${value
       .toFixed(2)
@@ -8,17 +8,7 @@ export const formatCurrencyBRL = (value) => {
   return '';
 };
 
-
-
-
-
-
-
-
-
-
-
-export const BRLtoFloat = (currency) => {
+export const BRLtoFloat = currency => {
   console.tron.log(currency);
   const value = currency.replace(',', '.').replace('R$', '');
 
@@ -34,16 +24,14 @@ const padLeft = (n, width = 2, z = '0') => {
   return `${pad}${number}`;
 };
 
-export const maskMoney = (money) => {
+export const maskMoney = money => {
   const regex = /(?<millions>\d{0,3})(?<thousands>\d{0,3})(?<hundreds>\d{0,3})(?<cents>\d{0,2})/;
 
   const inputDigits = getDigits(money);
   const fullDigits = padLeft(inputDigits, 11);
   const matches = fullDigits.match(regex);
 
-  let {
-    millions, thousands, hundreds, cents,
-  } = matches.groups;
+  let { millions, thousands, hundreds, cents } = matches.groups;
 
   millions = millions.replace(/^[0]*(?=[1-9])?/, '');
 

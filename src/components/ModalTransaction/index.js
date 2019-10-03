@@ -42,138 +42,147 @@ const ModalTransaction = ({
   isEdit,
 }) => {
   console.log(values);
-return(
-  <div>
-    <ThemeProvider
-      theme={
-        modalTransactionType === ModalTransactionTypes.RECIPE
-          ? { primary: 'green' }
-          : { primary: 'red' }
-      }
-    >
-      <Modal
-        bodyStyle={{ padding: 0 }}
-        closable={false}
-        width="700px"
-        visible={visable}
-        destroyOnClose={true}
-        footer={(
-          <>
-            <Button
-              key="back"
-              onClick={() => {
-                closeModal();
-                resetForm();
-              }}
-            >
-              Cancelar
-            </Button>
-            <Button
-              loading={transactionLoading}
-              key="submit"
-              onClick={() => {
-                handleSubmit();
-              }}
-            >
-              Salvar
-            </Button>
-          </>
-)}
-        okButtonProps={{ style: { backgroundColor: 'green' } }}
+  return (
+    <div>
+      <ThemeProvider
+        theme={
+          modalTransactionType === ModalTransactionTypes.RECIPE
+            ? { primary: 'green' }
+            : { primary: 'red' }
+        }
       >
-        <ModalHeader>
-          <ModalHeaderTitle>
-            {modalTransactionType === ModalTransactionTypes.RECIPE
-              ? isEdit ? 'Editar Receita': 'Criar Receita' : isEdit ? 'Editar Despesa':'Criar Despesa'} 
-          </ModalHeaderTitle>
-          <ModalHeaderIconClose
-            onClick={() => {
-              resetForm();
-              closeModal();
-            }}
-            type="close"
-          />
-        </ModalHeader>
-        <Form style={{ padding: '20px' }} className="ant-advanced-search-form">
-          <Row gutter={12}>
-            <Col span={12}>
-              <Field
-                style={{ width: '100%' }}
-                component={AntInputCurrency}
-                name="value"
-                label="Valor"
-                validate={isRequired}
-                submitCount={submitCount}
-                hasFeedback
-              />
-            </Col>
-            <Col span={12}>
-              <Field
-                style={{ width: '100%' }}
-                placeholder="Selecione a data"
-                component={AntDatePicker}
-                name="createdAt"
-                format="DD/MM/YYYY"
-                label="Data"
-                today={false}
-                validate={isRequired}
-                submitCount={submitCount}
-                hasFeedback
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <Field
-                component={AntInput}
-                name="description"
-                type="text"
-                label="Descrição"
-                validate={isRequired}
-                submitCount={submitCount}
-                hasFeedback
-              />
-            </Col>
-          </Row>
-          <Row gutter={24}>
-            <Col span={12}>
-              <Field
-                style={{ width: '100%' }}
-                component={AntSelect}
-                name="category"
-                label="Categoria"
-                defaultValue="Gabriel"
-                selectOptions={
-                  modalTransactionType === ModalTransactionTypes.RECIPE
-                    ? categories.recipe
-                    : categories.expense
-                }
-                validate={isRequired}
-                submitCount={submitCount}
-                tokenSeparators={[',']}
-                hasFeedback
-              />
-            </Col>
-            <Col span={12}>
-              <Field
-                style={{ width: '100%' }}
-                component={AntSelect}
-                name="account"
-                label="Conta"
-                defaultValue="Gabriel"
-                selectOptions={accounts}
-                validate={isRequired}
-                submitCount={submitCount}
-                tokenSeparators={[',']}
-                hasFeedback
-              />
-            </Col>
-          </Row>
-        </Form>
-      </Modal>
-    </ThemeProvider>
-  </div>
-)};
+        <Modal
+          bodyStyle={{ padding: 0 }}
+          closable={false}
+          width="700px"
+          visible={visable}
+          destroyOnClose
+          footer={
+            <>
+              <Button
+                key="back"
+                onClick={() => {
+                  closeModal();
+                  resetForm();
+                }}
+              >
+                Cancelar
+              </Button>
+              <Button
+                loading={transactionLoading}
+                key="submit"
+                onClick={() => {
+                  handleSubmit();
+                }}
+              >
+                Salvar
+              </Button>
+            </>
+          }
+          okButtonProps={{ style: { backgroundColor: 'green' } }}
+        >
+          <ModalHeader>
+            <ModalHeaderTitle>
+              {modalTransactionType === ModalTransactionTypes.RECIPE
+                ? isEdit
+                  ? 'Editar Receita'
+                  : 'Criar Receita'
+                : isEdit
+                ? 'Editar Despesa'
+                : 'Criar Despesa'}
+            </ModalHeaderTitle>
+            <ModalHeaderIconClose
+              onClick={() => {
+                resetForm();
+                closeModal();
+              }}
+              type="close"
+            />
+          </ModalHeader>
+          <Form
+            style={{ padding: '20px' }}
+            className="ant-advanced-search-form"
+          >
+            <Row gutter={12}>
+              <Col span={12}>
+                <Field
+                  style={{ width: '100%' }}
+                  component={AntInputCurrency}
+                  name="value"
+                  label="Valor"
+                  validate={isRequired}
+                  submitCount={submitCount}
+                  hasFeedback
+                />
+              </Col>
+              <Col span={12}>
+                <Field
+                  style={{ width: '100%' }}
+                  placeholder="Selecione a data"
+                  component={AntDatePicker}
+                  name="createdAt"
+                  format="DD/MM/YYYY"
+                  label="Data"
+                  today={false}
+                  validate={isRequired}
+                  submitCount={submitCount}
+                  hasFeedback
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col span={24}>
+                <Field
+                  component={AntInput}
+                  name="description"
+                  type="text"
+                  label="Descrição"
+                  validate={isRequired}
+                  submitCount={submitCount}
+                  hasFeedback
+                />
+              </Col>
+            </Row>
+            <Row gutter={24}>
+              <Col span={12}>
+                <Field
+                  style={{ width: '100%' }}
+                  component={AntSelect}
+                  name="category"
+                  label="Categoria"
+                  defaultValue="Gabriel"
+                  selectOptions={
+                    modalTransactionType === ModalTransactionTypes.RECIPE
+                      ? categories.recipe
+                      : categories.expense
+                  }
+                  validate={isRequired}
+                  submitCount={submitCount}
+                  tokenSeparators={[',']}
+                  hasFeedback
+                />
+              </Col>
+              <Col span={12}>
+                <Field
+                  style={{ width: '100%' }}
+                  component={AntSelect}
+                  name="account"
+                  label="Conta"
+                  defaultValue="Gabriel"
+                  selectOptions={accounts}
+                  validate={isRequired}
+                  submitCount={submitCount}
+                  tokenSeparators={[',']}
+                  hasFeedback
+                />
+              </Col>
+            </Row>
+          </Form>
+        </Modal>
+      </ThemeProvider>
+    </div>
+  );
+};
 const mapStateToProps = state => ({
   visable: state.modalTransactionReducer.visable,
   transactionLoading: state.transactionsReducer.loading,
@@ -184,35 +193,40 @@ const mapStateToProps = state => ({
   categories: state.categoriesReducer.data,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(
-  {
-    closeModal: Creators.closeModal,
-    postTransaction: TransactionsCreators.postTransaction,
-    updateTransaction: TransactionsCreators.updateTransaction,
-  },
-  dispatch,
-);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      closeModal: Creators.closeModal,
+      postTransaction: TransactionsCreators.postTransaction,
+      updateTransaction: TransactionsCreators.updateTransaction,
+    },
+    dispatch
+  );
 
 const ModalTransactionsFormik = withFormik({
   enableReinitialize: true,
-  mapPropsToValues: (props) => {
-      return { ...props.initialValues }
+  mapPropsToValues: props => {
+    return { ...props.initialValues };
   },
   handleSubmit: (
     values,
-    { props: { postTransaction, updateTransaction, modalTransactionType } },
+    { props: { postTransaction, updateTransaction, modalTransactionType } }
   ) => {
     let { createdAt, ...rest } = values;
     createdAt = moment(createdAt).toISOString();
     delete rest.accounts;
     delete rest.categories;
     delete rest.visable;
-    const transaction = { createdAt, ...rest, type: modalTransactionType, value: BRLtoFloat(rest.value) };
+    const transaction = {
+      createdAt,
+      ...rest,
+      type: modalTransactionType,
+      value: BRLtoFloat(rest.value),
+    };
 
-    if(transaction._id){
+    if (transaction._id) {
       updateTransaction(transaction);
-    }
-    else{
+    } else {
       postTransaction(transaction);
     }
   },
@@ -220,5 +234,5 @@ const ModalTransactionsFormik = withFormik({
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(ModalTransactionsFormik);

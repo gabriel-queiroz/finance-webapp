@@ -1,12 +1,12 @@
 const INITIAL_STATE = {
   transaction: {},
-  visible: false
+  visible: false,
 };
 
 export const Types = {
   OPEN: 'MODAL_TRANSACTION_DELETE_OPEN',
   CLOSE: 'MODAL_TRANSACTION_DELETE_CLOSE',
-  DELETE_SERVICE_TRANSACTION: ''
+  DELETE_SERVICE_TRANSACTION: '',
 };
 
 const ModalTransactionDeleteReducer = (state = INITIAL_STATE, action) => {
@@ -23,7 +23,7 @@ const ModalTransactionDeleteReducer = (state = INITIAL_STATE, action) => {
 
 export const Creators = {
   open: transaction => ({ type: Types.OPEN, payload: { transaction } }),
-  close: () => ({ type: Types.CLOSE })
+  close: () => ({ type: Types.CLOSE }),
 };
 
 export default ModalTransactionDeleteReducer;

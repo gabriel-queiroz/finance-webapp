@@ -8,14 +8,14 @@ const InputCurrency = ({ onChange, value, onBlur }) => (
       value
         ? value.toLocaleString('pt-br', {
             style: 'currency',
-            currency: 'BRL'
+            currency: 'BRL',
           })
         : 0
     }
     onBlur={onBlur}
     onChange={e => {
-      const { value } = e.target;
-      onChange(maskMoney(value));
+      const { number } = e.target;
+      onChange(maskMoney(number));
     }}
   />
 );

@@ -5,7 +5,9 @@ const NestedRoute = props => (
   <Route
     exact={props.exact}
     path={props.path}
-    render={component => <props.component {...component}>{props.children}</props.component>}
+    render={component => (
+      <props.component {...component}>{props.children}</props.component>
+    )}
   />
 );
 

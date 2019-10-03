@@ -1,7 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import {
-  DatePicker, Form, Input, InputNumber, TimePicker, Select,
-} from 'antd';
+import { DatePicker, Form, Input, InputNumber, TimePicker, Select } from 'antd';
 import InputCurrency from '../InputCurrency';
 
 const FormItem = Form.Item;
@@ -15,6 +14,7 @@ const CreateAntField = AntComponent => ({
   selectOptions,
   submitCount,
   type,
+
   ...props
 }) => {
   let onInputChange;
@@ -26,7 +26,8 @@ const CreateAntField = AntComponent => ({
   if (field.name === 'value') {
     onInputChange = value => form.setFieldValue(field.name, value);
   } else {
-    onInputChange = ({ target: { value } }) => form.setFieldValue(field.name, value);
+    onInputChange = ({ target: { value } }) =>
+      form.setFieldValue(field.name, value);
   }
   const onChange = value => form.setFieldValue(field.name, value);
   const onBlur = () => form.setFieldTouched(field.name, true);
@@ -44,8 +45,9 @@ const CreateAntField = AntComponent => ({
           onBlur={onBlur}
           onChange={type ? onInputChange : onChange}
         >
-          {selectOptions
-            && selectOptions.map(item => (
+          {selectOptions &&
+            selectOptions.map(item => (
+              // eslint-disable-next-line no-underscore-dangle
               <Option key={item._id}>{item.name}</Option>
             ))}
         </AntComponent>

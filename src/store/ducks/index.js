@@ -10,7 +10,7 @@ const reducers = combineReducers({
   modalTransactionReducer,
   categoriesReducer,
   accountsReducer,
-  modalTransactionDeleteReducer
+  modalTransactionDeleteReducer,
 });
 
 export default reducers;

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Card, Row, Col, Icon,
-} from 'antd';
+import { Card, Row, Col, Icon } from 'antd';
 import { connect } from 'react-redux';
 import { Statistic, AnimatedCurrency } from './styles';
 import * as Selectors from '../../store/selectors/transactions';
@@ -9,10 +7,11 @@ import * as Selectors from '../../store/selectors/transactions';
 class Home extends Component {
   componentDidMount() {}
 
-  formatValue = value => value.toLocaleString('pt-br', {
-    style: 'currency',
-    currency: 'BRL',
-  });
+  formatValue = value =>
+    value.toLocaleString('pt-br', {
+      style: 'currency',
+      currency: 'BRL',
+    });
 
   render() {
     return (
@@ -84,5 +83,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  null,
+  null
 )(Home);
