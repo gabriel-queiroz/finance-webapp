@@ -1,8 +1,14 @@
 import axios from 'axios';
 
 const http = axios.create({
-  baseURL: 'http://localhost:3001/api',
+  baseURL: 'http://localhost:3333',
   timeout: 3001,
+});
+
+http.interceptors.request.use(async request => {
+  request.headers.Authorization =
+    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTU3MjM3NDM0OSwiZXhwIjoxNTcyNDEwMzQ5fQ.YzSArw34EgdjwwTNoZ7rWI4-Z5qgniH2OW-vknUfM7E';
+  return request;
 });
 
 export default http;
