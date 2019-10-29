@@ -8,7 +8,7 @@ import { Creators as ModalTransactionDeleteCreators } from 'store/ducks/modalTra
 export function* getTransactions() {
   try {
     const { data } = yield call(http.get, '/transactions');
-    yield put(TransactionsCreators.getSuccessTransactions(data));
+    yield put(TransactionsCreators.getSuccessTransactions(data.transactions));
   } catch (error) {
     yield put(TransactionsCreators.getFailureTransaction(error));
   }
@@ -27,9 +27,9 @@ export function* postTransaction(action) {
   }
 }
 
-export function* updateTransaction({ payload: { _id, ...transaction } }) {
+export function* updateTransaction({ payload: { id, ...transaction } }) {
   try {
-    yield call(http.put, `/transactions/${_id}`, transaction);
+    yield call(http.put, `/transactions/${id}`, transaction);
     yield put(ModalTransactionCreators.closeModal());
     yield put(TransactionsCreators.updateSuccessTransaction());
     toast.success('Transação atualizada com sucesso!');
