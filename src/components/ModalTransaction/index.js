@@ -217,11 +217,11 @@ const ModalTransactionsFormik = withFormik({
     delete rest.accounts;
     delete rest.categories;
     delete rest.visable;
-
-
     const transaction = {
       createdAt,
       ...rest,
+      category_id: rest.category,
+      account_id: rest.account,
       type: modalTransactionType,
       value: BRLtoFloat(rest.value),
     };

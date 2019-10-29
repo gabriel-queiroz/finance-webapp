@@ -44,8 +44,8 @@ export const Creators = {
       transaction = {
         ...transaction,
         createdAt: moment(transaction),
-        category: transaction.category.name,
-        account: transaction.account.name,
+        category: transaction.category.id,
+        account: transaction.account.id,
       };
     }
 
