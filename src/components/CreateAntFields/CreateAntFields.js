@@ -48,7 +48,7 @@ const CreateAntField = AntComponent => ({
           {selectOptions &&
             selectOptions.map(item => (
               // eslint-disable-next-line no-underscore-dangle
-              <Option key={item._id}>{item.name}</Option>
+              <Option key={item.id}>{item.name}</Option>
             ))}
         </AntComponent>
       </FormItem>

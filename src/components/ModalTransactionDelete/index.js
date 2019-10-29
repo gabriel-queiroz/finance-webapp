@@ -16,7 +16,7 @@ const ModalTransactionDelete = ({
 }) => (
   <Modal
     width="400px"
-    onOk={() => deleteTransaction(transaction._id)}
+    onOk={() => deleteTransaction(transaction.id)}
     okButtonProps={{ loading }}
     cancelText="Cancelar"
     okType="danger"

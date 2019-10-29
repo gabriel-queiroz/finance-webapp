@@ -217,6 +217,8 @@ const ModalTransactionsFormik = withFormik({
     delete rest.accounts;
     delete rest.categories;
     delete rest.visable;
+
+
     const transaction = {
       createdAt,
       ...rest,
@@ -224,7 +226,7 @@ const ModalTransactionsFormik = withFormik({
       value: BRLtoFloat(rest.value),
     };
 
-    if (transaction._id) {
+    if (transaction.id) {
       updateTransaction(transaction);
     } else {
       postTransaction(transaction);
