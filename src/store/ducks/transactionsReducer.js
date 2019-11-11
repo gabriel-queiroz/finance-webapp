@@ -3,7 +3,7 @@ const INITIAL_STATE = {
   loading: false,
   error: null,
   errorPostTransaction: null,
-  loadingTransaction: false
+  loadingTransaction: false,
 };
 
 export const Types = {
@@ -18,7 +18,7 @@ export const Types = {
   UPDATE_SUCCESS_TRANSACTION: 'UPDATE_TRANSACTION_SUCCESS_SERVICE',
   DELETE_TRANSACTION: 'DELETE_TRANSACTION_SERVICE',
   DELETE_FAILURE_TRANSACTION: 'DELETE_TRANSACTION_FAILURE_SERVICE',
-  DELETE_SUCCESS_TRANSACTION: 'DELETE_TRANSACTION_SUCCESS_SERVICE'
+  DELETE_SUCCESS_TRANSACTION: 'DELETE_TRANSACTION_SUCCESS_SERVICE',
 };
 
 const transactionsReducer = (state = INITIAL_STATE, action) => {
@@ -67,51 +67,51 @@ const transactionsReducer = (state = INITIAL_STATE, action) => {
 
 export const Creators = {
   getTransactions: () => ({
-    type: Types.GET_TRANSACTIONS
+    type: Types.GET_TRANSACTIONS,
   }),
   getSuccessTransactions: transactions => ({
     type: Types.GET_SUCCESS_TRANSACTIONS,
-    payload: { data: transactions, loading: false }
+    payload: { data: transactions, loading: false },
   }),
   getFailureTransaction: errorMessage => ({
     type: Types.GET_FAILURE_TRANSACTIONS,
-    payload: errorMessage
+    payload: errorMessage,
   }),
-  postTransaction: transactionId => ({
+  postTransaction: transaction => ({
     type: Types.POST_TRANSACTION,
-    payload: transactionId
+    payload: transaction,
   }),
   postSuccessTransaction: () => ({
     type: Types.POST_SUCCESS_TRANSACTION,
-    payload: { loading: false }
+    payload: { loading: false },
   }),
   postFailureTransaction: error => ({
     type: Types.POST_FAILURE_TRANSACTION,
-    payload: { error, loading: false }
+    payload: { error, loading: false },
   }),
   updateTransaction: transaction => ({
     type: Types.UPDATE_TRANSACTION,
-    payload: transaction
+    payload: transaction,
   }),
   updateSuccessTransaction: () => ({
     type: Types.UPDATE_SUCCESS_TRANSACTION,
-    payload: { loading: false }
+    payload: { loading: false },
   }),
   updateFailureTransaction: error => ({
     type: Types.DELETE_FAILURE_TRANSACTION,
-    payload: { error, loading: false }
+    payload: { error, loading: false },
   }),
   deleteTransaction: transaction => ({
     type: Types.DELETE_TRANSACTION,
-    payload: transaction
+    payload: transaction,
   }),
   deleteSuccessTransaction: () => ({
     type: Types.DELETE_SUCCESS_TRANSACTION,
-    payload: { loading: false }
+    payload: { loading: false },
   }),
   deleteFailureTransaction: error => ({
     type: Types.DELETE_FAILURE_TRANSACTION,
-    payload: { error, loading: false }
-  })
+    payload: { error, loading: false },
+  }),
 };
 export default transactionsReducer;

@@ -4,7 +4,7 @@ import {
   getTransactions,
   postTransaction,
   updateTransaction,
-  deleteTransaction
+  deleteTransaction,
 } from './TransactionSaga';
 import accountSaga from './accountSaga';
 import categorySaga from './categorySaga';
@@ -19,6 +19,6 @@ export default function* rootSaga() {
     takeLatest(TransactionsType.UPDATE_TRANSACTION, updateTransaction),
     takeLatest(TransactionsType.DELETE_TRANSACTION, deleteTransaction),
     takeLatest(CategoriesType.GET_CATEGORIES, categorySaga),
-    takeLatest(AccountsType.GET_ACCOUNTS, accountSaga)
+    takeLatest(AccountsType.GET_ACCOUNTS, accountSaga),
   ]);
 }

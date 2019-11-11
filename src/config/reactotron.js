@@ -9,6 +9,4 @@ const reactotron = Reactotron.configure()
 
 console.tron = reactotron;
 
-console.log('entrou');
-
 export default reactotron;

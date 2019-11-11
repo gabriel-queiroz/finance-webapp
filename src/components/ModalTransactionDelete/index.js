@@ -1,24 +1,23 @@
 import React from 'react';
-import { Modal } from 'antd';
+import { Modal, Divider } from 'antd';
 import { connect } from 'react-redux';
 import { Creators } from 'store/ducks/modalTransactionDeleteReducer';
 import { Creators as TransactionsCreators } from 'store/ducks/transactionsReducer';
 import { bindActionCreators } from 'redux';
-import { Container, Title, Content, Type, Description, Value } from './styles';
 import { formatCurrencyBRL } from 'helpers';
-import { Divider } from 'antd';
+import { Container, Title, Content, Type, Description, Value } from './styles';
 
 const ModalTransactionDelete = ({
   visible,
   closeModal,
   transaction,
   loading,
-  deleteTransaction
+  deleteTransaction,
 }) => (
   <Modal
     width="400px"
-    onOk={() => deleteTransaction(transaction._id)}
-    okButtonProps={{ loading: loading }}
+    onOk={() => deleteTransaction(transaction.id)}
+    okButtonProps={{ loading }}
     cancelText="Cancelar"
     okType="danger"
     okText="Excluir"
@@ -47,7 +46,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       closeModal: Creators.close,
-      deleteTransaction: TransactionsCreators.deleteTransaction
+      deleteTransaction: TransactionsCreators.deleteTransaction,
     },
     dispatch
   );
@@ -55,7 +54,7 @@ const mapDispatchToProps = dispatch =>
 const mapStateToProps = state => ({
   visible: state.modalTransactionDeleteReducer.visible,
   loading: state.transactionsReducer.loading,
-  transaction: state.modalTransactionDeleteReducer.transaction
+  transaction: state.modalTransactionDeleteReducer.transaction,
 });
 
 export default connect(

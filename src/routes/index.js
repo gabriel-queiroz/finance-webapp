@@ -1,12 +1,9 @@
-import {
-  BrowserRouter, Switch, Route, Redirect,
-} from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import React from 'react';
 import Loadable from 'react-loadable';
-import {Loading, LoadingDashboard} from './LoadingRoute';
+import { Loading, LoadingDashboard } from './LoadingRoute';
 import NestedRoute from './NestedRoute';
 import PrivateRoute from './PrivateRoute';
-
 
 const Login = Loadable({
   loader: () => import('pages/Login'),
@@ -32,7 +29,6 @@ const Accounts = Loadable({
   loader: () => import('pages/Accounts'),
   loading: LoadingDashboard,
 });
-
 
 const Routes = () => (
   <BrowserRouter>
