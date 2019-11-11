@@ -1,52 +1,88 @@
-import { Modal, Row, Col } from 'antd';
-import { Field, withFormik, Form } from 'formik';
-import React from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
+import React, { useEffect } from 'react';
+import { Modal, Row, Col, Input, Form, DatePicker, Select } from 'antd';
+import { useSelector, useDispatch } from 'react-redux';
+
 import moment from 'moment';
 import { ThemeProvider } from 'styled-components';
 import {
-  Creators,
+  Creators as ModalTransactionsCreators,
   ModalTransactionTypes,
 } from 'store/ducks/modalTransactionReducer';
 import { Creators as TransactionsCreators } from 'store/ducks/transactionsReducer';
-import { BRLtoFloat } from 'helpers';
+import { BRLtoFloat, maskMoney, formatCurrencyBRL } from 'helpers';
 import {
   ModalHeader,
   Button,
   ModalHeaderTitle,
   ModalHeaderIconClose,
 } from './styles';
-import { isRequired } from '../ValidateFields/ValidateFields';
-import {
-  AntDatePicker,
-  AntInput,
-  AntSelect,
-  AntInputCurrency,
-} from '../CreateAntFields/CreateAntFields';
 import 'moment/locale/pt-br';
+
+const { Option } = Select;
 
 moment.locale('pt-br');
 
 const ModalTransaction = ({
-  visable,
-  closeModal,
-  submitCount,
-  handleSubmit,
-  accounts,
-  categories,
-  modalTransactionType,
-  resetForm,
-  transactionLoading,
-  values,
-  isEdit,
+  form: { getFieldDecorator, validateFields, validateFieldsAndScroll },
 }) => {
-  console.log(values);
+  const {
+    transactionType,
+    visable,
+    transactionLoading,
+    isEdit,
+    transaction,
+  } = useSelector(store => store.modalTransactionReducer);
+
+  const categories = useSelector(store => {
+    if (transactionType === ModalTransactionTypes.RECIPE)
+      return store.categoriesReducer.data.recipe || [];
+    return store.categoriesReducer.data.expense || [];
+  });
+  const accounts = useSelector(store => store.accountsReducer.data);
+
+  useEffect(() => {
+    validateFields(['value']);
+  }, []);
+
+  const dispatch = useDispatch();
+
+  const handleCloseModal = () => {
+    dispatch(ModalTransactionsCreators.closeModal());
+  };
+
+  const handleFormSubmit = () => {
+    try {
+      validateFieldsAndScroll((err, transactionSubmit) => {
+        if (!err) {
+          if (isEdit) {
+            return dispatch(
+              TransactionsCreators.updateTransaction({
+                ...transactionSubmit,
+                value: BRLtoFloat(transactionSubmit.transaction_value),
+                created_at: transactionSubmit.created_at.toISOString(),
+                id: transaction.id,
+              })
+            );
+          }
+          dispatch(
+            TransactionsCreators.postTransaction({
+              ...transactionSubmit,
+              value: BRLtoFloat(transactionSubmit.transaction_value),
+              created_at: transactionSubmit.created_at.toISOString(),
+            })
+          );
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <ThemeProvider
         theme={
-          modalTransactionType === ModalTransactionTypes.RECIPE
+          transactionType === ModalTransactionTypes.RECIPE
             ? { primary: 'green' }
             : { primary: 'red' }
         }
@@ -62,8 +98,7 @@ const ModalTransaction = ({
               <Button
                 key="back"
                 onClick={() => {
-                  closeModal();
-                  resetForm();
+                  handleCloseModal();
                 }}
               >
                 Cancelar
@@ -72,7 +107,7 @@ const ModalTransaction = ({
                 loading={transactionLoading}
                 key="submit"
                 onClick={() => {
-                  handleSubmit();
+                  handleFormSubmit();
                 }}
               >
                 Salvar
@@ -83,7 +118,7 @@ const ModalTransaction = ({
         >
           <ModalHeader>
             <ModalHeaderTitle>
-              {modalTransactionType === ModalTransactionTypes.RECIPE
+              {transactionType === ModalTransactionTypes.RECIPE
                 ? isEdit
                   ? 'Editar Receita'
                   : 'Criar Receita'
@@ -93,8 +128,7 @@ const ModalTransaction = ({
             </ModalHeaderTitle>
             <ModalHeaderIconClose
               onClick={() => {
-                resetForm();
-                closeModal();
+                handleCloseModal();
               }}
               type="close"
             />
@@ -105,76 +139,107 @@ const ModalTransaction = ({
           >
             <Row gutter={12}>
               <Col span={12}>
-                <Field
-                  style={{ width: '100%' }}
-                  component={AntInputCurrency}
-                  name="value"
-                  label="Valor"
-                  validate={isRequired}
-                  submitCount={submitCount}
-                  hasFeedback
-                />
+                <Form.Item label="Valor">
+                  {getFieldDecorator('transaction_value', {
+                    initialValue: formatCurrencyBRL(transaction.value),
+                    normalize: value => {
+                      return maskMoney(value);
+                    },
+                    rules: [
+                      {
+                        required: true,
+                        message: 'O valor é obrigatório',
+                      },
+                      {
+                        validator: (rule, value, callback) => {
+                          const transactionValue = BRLtoFloat(value);
+                          if (transactionValue <= 0)
+                            callback('O valor não pode ser zero');
+                          else callback();
+                        },
+                      },
+                    ],
+                  })(<Input />)}
+                </Form.Item>
               </Col>
               <Col span={12}>
-                <Field
-                  style={{ width: '100%' }}
-                  placeholder="Selecione a data"
-                  component={AntDatePicker}
-                  name="createdAt"
-                  format="DD/MM/YYYY"
-                  label="Data"
-                  today={false}
-                  validate={isRequired}
-                  submitCount={submitCount}
-                  hasFeedback
-                />
+                <Form.Item label="Data">
+                  {getFieldDecorator('created_at', {
+                    initialValue: moment(),
+                    rules: [
+                      {
+                        required: 'true',
+                        message: 'A data é obrigatória',
+                      },
+                    ],
+                  })(
+                    <DatePicker
+                      style={{ width: '100%' }}
+                      placeholder="Seleciona a data"
+                      format="DD/MM/YYYY"
+                      showToday={false}
+                    />
+                  )}
+                </Form.Item>
               </Col>
             </Row>
             <Row>
               <Col span={24}>
-                <Field
-                  component={AntInput}
-                  name="description"
-                  type="text"
-                  label="Descrição"
-                  validate={isRequired}
-                  submitCount={submitCount}
-                  hasFeedback
-                />
+                <Form.Item label="Descrição" hasFeedback>
+                  {getFieldDecorator('description', {
+                    initialValue: transaction.description,
+                    rules: [
+                      {
+                        required: true,
+                        message: 'A descrição é obrigatória',
+                      },
+                    ],
+                  })(<Input />)}
+                </Form.Item>
               </Col>
             </Row>
             <Row gutter={24}>
               <Col span={12}>
-                <Field
-                  style={{ width: '100%' }}
-                  component={AntSelect}
-                  name="category"
-                  label="Categoria"
-                  defaultValue="Gabriel"
-                  selectOptions={
-                    modalTransactionType === ModalTransactionTypes.RECIPE
-                      ? categories.recipe
-                      : categories.expense
-                  }
-                  validate={isRequired}
-                  submitCount={submitCount}
-                  tokenSeparators={[',']}
-                  hasFeedback
-                />
+                <Form.Item label="Categoria" hasFeedback>
+                  {getFieldDecorator('category_id', {
+                    initialValue: transaction.category_id,
+                    rules: [
+                      {
+                        required: true,
+                        message: 'A categoria é obrigatória',
+                      },
+                    ],
+                  })(
+                    <Select placeholder="Seleciona a categoria">
+                      {categories.map(category => (
+                        <Option key={category.id} value={category.id}>
+                          {category.name}
+                        </Option>
+                      ))}
+                    </Select>
+                  )}
+                </Form.Item>
               </Col>
               <Col span={12}>
-                <Field
-                  style={{ width: '100%' }}
-                  component={AntSelect}
-                  name="account"
-                  label="Conta"
-                  defaultValue="Gabriel"
-                  selectOptions={accounts}
-                  validate={isRequired}
-                  submitCount={submitCount}
-                  tokenSeparators={[',']}
-                  hasFeedback
-                />
+                <Form.Item label="Conta" hasFeedback>
+                  {getFieldDecorator('account_id', {
+                    initialValue: transaction.account_id,
+                    rules: [
+                      {
+                        required: true,
+                        message: 'A  conta é obrigatória',
+                      },
+                    ],
+                  })(
+                    <Select placeholder="Seleciona a conta">
+                      {accounts.map(account => (
+                        <Option key={account.id} value={account.id}>
+                          {account.name}
+                        </Option>
+                      ))}
+                    </Select>
+                  )}
+                </Form.Item>
               </Col>
             </Row>
           </Form>
@@ -183,58 +248,9 @@ const ModalTransaction = ({
     </div>
   );
 };
-const mapStateToProps = state => ({
-  visable: state.modalTransactionReducer.visable,
-  transactionLoading: state.transactionsReducer.loading,
-  initialValues: state.modalTransactionReducer.transaction,
-  isEdit: state.modalTransactionReducer.isEdit,
-  modalTransactionType: state.modalTransactionReducer.transactionType,
-  accounts: state.accountsReducer.data,
-  categories: state.categoriesReducer.data,
-});
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      closeModal: Creators.closeModal,
-      postTransaction: TransactionsCreators.postTransaction,
-      updateTransaction: TransactionsCreators.updateTransaction,
-    },
-    dispatch
-  );
+const FormModalTransaction = Form.create({ name: 'modalTransaction' })(
+  ModalTransaction
+);
 
-const ModalTransactionsFormik = withFormik({
-  enableReinitialize: true,
-  mapPropsToValues: props => {
-    return { ...props.initialValues };
-  },
-  handleSubmit: (
-    values,
-    { props: { postTransaction, updateTransaction, modalTransactionType } }
-  ) => {
-    let { createdAt, ...rest } = values;
-    createdAt = moment(createdAt).toISOString();
-    delete rest.accounts;
-    delete rest.categories;
-    delete rest.visable;
-    const transaction = {
-      createdAt,
-      ...rest,
-      category_id: rest.category,
-      account_id: rest.account,
-      type: modalTransactionType,
-      value: BRLtoFloat(rest.value),
-    };
-
-    if (transaction.id) {
-      updateTransaction(transaction);
-    } else {
-      postTransaction(transaction);
-    }
-  },
-})(ModalTransaction);
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ModalTransactionsFormik);
+export default FormModalTransaction;

@@ -7,7 +7,7 @@ const http = axios.create({
 
 http.interceptors.request.use(async request => {
   request.headers.Authorization =
-    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTU3MjM3NDM0OSwiZXhwIjoxNTcyNDEwMzQ5fQ.YzSArw34EgdjwwTNoZ7rWI4-Z5qgniH2OW-vknUfM7E';
+    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTU3MzQ4MDUyNSwiZXhwIjoxNTczNTE2NTI1fQ.bfcehD3tG2yb414N2byfvrjs_hgd50UqQA2Lbx5UoNE';
   return request;
 });
 

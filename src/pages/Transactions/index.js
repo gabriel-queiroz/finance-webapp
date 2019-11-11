@@ -72,7 +72,11 @@ class Transactions extends Component {
               <button
                 type="button"
                 onClick={() => {
-                  this.props.modalOpen(transaction.type, transaction, true);
+                  this.props.modalOpen(
+                    transaction.category.type,
+                    transaction,
+                    true
+                  );
                 }}
               >
                 <Icon

@@ -77,9 +77,9 @@ export const Creators = {
     type: Types.GET_FAILURE_TRANSACTIONS,
     payload: errorMessage,
   }),
-  postTransaction: transactionId => ({
+  postTransaction: transaction => ({
     type: Types.POST_TRANSACTION,
-    payload: transactionId,
+    payload: transaction,
   }),
   postSuccessTransaction: () => ({
     type: Types.POST_SUCCESS_TRANSACTION,

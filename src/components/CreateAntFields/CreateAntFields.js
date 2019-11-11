@@ -14,7 +14,6 @@ const CreateAntField = AntComponent => ({
   selectOptions,
   submitCount,
   type,
-
   ...props
 }) => {
   let onInputChange;
@@ -47,7 +46,6 @@ const CreateAntField = AntComponent => ({
         >
           {selectOptions &&
             selectOptions.map(item => (
-              // eslint-disable-next-line no-underscore-dangle
               <Option key={item.id}>{item.name}</Option>
             ))}
         </AntComponent>

@@ -9,10 +9,15 @@ export const formatCurrencyBRL = value => {
 };
 
 export const BRLtoFloat = currency => {
-  console.tron.log(currency);
-  const value = currency.replace(',', '.').replace('R$', '');
+  const value = parseFloat(
+    currency
+      .replace('R$', '')
+      .replace(' ', '')
+      .replace('.', '')
+      .replace(',', '.')
+  ).toFixed(2);
 
-  return parseFloat(value);
+  return value;
 };
 
 const getDigits = string => `${string}`.replace(/\D/g, '');
