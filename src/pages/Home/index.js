@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import {
-  Card, Row, Col, Icon,
-} from 'antd';
+import { Card, Row, Col, Icon } from 'antd';
+import { connect } from 'react-redux';
 import { Statistic, AnimatedCurrency } from './styles';
+import * as Selectors from '../../store/selectors/transactions';
 
 class Home extends Component {
   componentDidMount() {}
 
-  formatValue = value => value.toLocaleString('pt-br', {
-    style: 'currency',
-    currency: 'BRL',
-  });
+  formatValue = value =>
+    value.toLocaleString('pt-br', {
+      style: 'currency',
+      currency: 'BRL',
+    });
 
   render() {
     return (
@@ -20,27 +21,11 @@ class Home extends Component {
         }}
       >
         <Row justify="space-around" gutter={16}>
-          <Col span={6}>
-            <Card>
-              <Statistic
-                title="Saldo Atual"
-                value={1100.28}
-                formatter={value => (
-                  <AnimatedCurrency
-                    value={value}
-                    formatValue={this.formatValue}
-                  />
-                )}
-                prefix={<Icon type="bank" />}
-                valueColor="#0076be"
-              />
-            </Card>
-          </Col>
-          <Col span={6}>
+          <Col span={8}>
             <Card>
               <Statistic
                 title="Receitas"
-                value={1700.28}
+                value={this.props.recipes}
                 valueColor="#3f8600"
                 prefix={<Icon type="arrow-up" />}
                 formatter={value => (
@@ -52,11 +37,11 @@ class Home extends Component {
               />
             </Card>
           </Col>
-          <Col span={6}>
+          <Col span={8}>
             <Card>
               <Statistic
                 title="Despesas"
-                value={900.32}
+                value={this.props.expenses}
                 valueColor="#cf1322"
                 prefix={<Icon type="arrow-down" />}
                 formatter={value => (
@@ -68,11 +53,11 @@ class Home extends Component {
               />
             </Card>
           </Col>
-          <Col span={6}>
+          <Col span={8}>
             <Card>
               <Statistic
                 title="Balanço do Mês"
-                value={2000.3}
+                value={this.props.recipes - this.props.expenses}
                 valueColor="#009688"
                 prefix={<Icon type="arrow-right" />}
                 formatter={value => (
@@ -90,4 +75,13 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = state => ({
+  transactions: state.transactionsReducer.data,
+  expenses: Selectors.sumExpenses(state),
+  recipes: Selectors.sumRecipes(state),
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(Home);

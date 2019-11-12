@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { Table, Icon, Tag } from 'antd';
+import { Table, Icon } from 'antd';
+import TagTransactionType from 'components/TagTransactionType';
 import 'font-awesome/css/font-awesome.css';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import moment from 'moment';
 import { Creators as modalTransactionCreators } from 'store/ducks/modalTransactionReducer';
+import { Creators as modalTransactionDeleteCreators } from 'store/ducks/modalTransactionDeleteReducer';
 
 class Transactions extends Component {
   constructor(props) {
@@ -20,12 +22,10 @@ class Transactions extends Component {
         },
         {
           title: 'Tipo',
-          dataIndex: 'type',
-          key: 'type',
-          render: (text) => {
-            if (text === 'EXPENSE') return <Tag color="red">DESPESA</Tag>;
-
-            return <Tag color="blue">RECEITA</Tag>;
+          dataIndex: 'category',
+          key: 'category',
+          render: category => {
+            return <TagTransactionType type={category.type} />;
           },
         },
         {
@@ -37,17 +37,19 @@ class Transactions extends Component {
           title: 'Categoria',
           dataIndex: 'category',
           key: 'category',
+          render: text => `${text.name}`,
         },
         {
           title: 'Conta',
           dataIndex: 'account',
           key: 'account',
+          render: text => `${text.name}`,
         },
         {
           title: 'Valor',
           dataIndex: 'value',
           key: 'value',
-          render: (text) => {
+          render: text => {
             let value = parseFloat(text);
             const isNegative = value < 0;
             value = Math.abs(value);
@@ -65,12 +67,16 @@ class Transactions extends Component {
         {
           title: 'Ações',
           dataIndex: 'action',
-          render: () => (
+          render: (text, transaction) => (
             <>
               <button
                 type="button"
                 onClick={() => {
-                  this.props.modalOpen();
+                  this.props.modalOpen(
+                    transaction.category.type,
+                    transaction,
+                    true
+                  );
                 }}
               >
                 <Icon
@@ -82,7 +88,10 @@ class Transactions extends Component {
                   }}
                 />
               </button>
-              <button type="button" onClick={() => alert('foo')}>
+              <button
+                onClick={() => this.props.modalDeleteOpen(transaction)}
+                type="button"
+              >
                 <Icon
                   type="delete"
                   style={{ fontSize: '20px', color: 'red' }}
@@ -118,12 +127,16 @@ const mapStateToProps = state => ({
   error: state.transactionsReducer.error,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(
-  { modalOpen: modalTransactionCreators.openModal },
-  dispatch,
-);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      modalOpen: modalTransactionCreators.openModal,
+      modalDeleteOpen: modalTransactionDeleteCreators.open,
+    },
+    dispatch
+  );
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Transactions);

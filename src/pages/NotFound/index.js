@@ -2,7 +2,7 @@ import React from 'react';
 
 // import { Container } from './styles';
 
-const NotFound = (props) => {
+const NotFound = props => {
   const {
     history: { push },
   } = props;

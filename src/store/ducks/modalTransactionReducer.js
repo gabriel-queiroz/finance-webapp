@@ -1,6 +1,10 @@
+import moment from 'moment';
+
 const INITIAL_STATE = {
   visable: false,
   transactionType: '',
+  transaction: {},
+  isEdit: false,
 };
 
 export const Types = {
@@ -19,7 +23,12 @@ const modalTransactionReducer = (state = INITIAL_STATE, action) => {
       return { ...state, ...action.payload };
     }
     case Types.CLOSE: {
-      return { ...state, visable: action.payload };
+      return {
+        ...state,
+        visable: action.payload,
+        isEdit: false,
+        transaction: {},
+      };
     }
     default: {
       return state;
@@ -28,13 +37,30 @@ const modalTransactionReducer = (state = INITIAL_STATE, action) => {
 };
 
 export const Creators = {
-  openModal: transactionType => ({
-    type: Types.OPEN,
-    payload: {
-      visable: true,
-      transactionType,
-    },
-  }),
+  openModal: (transactionType, transaction, isEdit = false) => {
+    if (!transaction) {
+      transaction = {};
+    } else {
+      transaction = {
+        ...transaction,
+        createdAt: moment(transaction),
+        category: transaction.category.name,
+        account: transaction.account.name,
+      };
+    }
+
+    const data = {
+      type: Types.OPEN,
+      payload: {
+        visable: true,
+        transactionType,
+        transaction,
+        isEdit,
+      },
+    };
+
+    return data;
+  },
   closeModal: () => ({
     type: Types.CLOSE,
     payload: false,

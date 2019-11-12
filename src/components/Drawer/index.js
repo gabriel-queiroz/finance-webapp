@@ -14,6 +14,7 @@ import ModalTransaction from 'components/ModalTransaction';
 import { Creators as transactionsCreators } from 'store/ducks/transactionsReducer';
 import { Creators as categoriesCreators } from 'store/ducks/categoriesReducer';
 import { Creators as accountsCreators } from 'store/ducks/accountsReducer';
+import ModalTransactionDelete from '../ModalTransactionDelete';
 import {
   Container,
   Header,
@@ -117,12 +118,14 @@ class Dashboard extends React.Component {
             </Footer>
           </Container>
           <ModalTransaction />
+          <ModalTransactionDelete />
           <Fab
             mainButtonStyles={{ backgroundColor: '#1890ff' }}
             icon={<Icon type="plus" />}
           >
             <Action
-              onClick={() => this.props.openModalTransation(ModalTransactionTypes.RECIPE)
+              onClick={() =>
+                this.props.openModalTransation(ModalTransactionTypes.RECIPE)
               }
               style={{ backgroundColor: 'green' }}
               text="Nova Receita"
@@ -130,7 +133,8 @@ class Dashboard extends React.Component {
               <Icon type="plus" />
             </Action>
             <Action
-              onClick={() => this.props.openModalTransation(ModalTransactionTypes.EXPENSE)
+              onClick={() =>
+                this.props.openModalTransation(ModalTransactionTypes.EXPENSE)
               }
               style={{ backgroundColor: 'red' }}
               text="Nova Despesa"
@@ -145,17 +149,18 @@ class Dashboard extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators(
-  {
-    openModalTransation: modalTransactioCreators.openModal,
-    getTransactions: transactionsCreators.getTransactions,
-    getAccounts: accountsCreators.getAccounts,
-    getCategories: categoriesCreators.getCategories,
-  },
-  dispatch,
-);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      openModalTransation: modalTransactioCreators.openModal,
+      getTransactions: transactionsCreators.getTransactions,
+      getAccounts: accountsCreators.getAccounts,
+      getCategories: categoriesCreators.getCategories,
+    },
+    dispatch
+  );
 
 export default connect(
   null,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Dashboard);
