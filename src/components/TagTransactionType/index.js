@@ -1,16 +1,10 @@
 import React from 'react';
-import { Tag } from 'antd';
-
-const transactionTypes = {
-  RECIPE: 'RECIPE',
-  EXPENSE: 'EXPENSE',
-};
+import { translateTransactionType } from 'helpers';
+import { Tag } from './styles';
 
 const TagTransactionType = ({ type }) => (
   <span>
-    <Tag color={type === transactionTypes.EXPENSE ? 'red' : 'green'}>
-      {type === transactionTypes.EXPENSE ? 'DESPESA' : 'RECEITA'}
-    </Tag>
+    <Tag type={type}>{translateTransactionType(type)}</Tag>
   </span>
 );
 

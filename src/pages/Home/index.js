@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Row, Col, Icon } from 'antd';
 import { connect } from 'react-redux';
+import { colors } from 'styles';
 import { Statistic, AnimatedCurrency } from './styles';
 import * as Selectors from '../../store/selectors/transactions';
 
@@ -26,7 +27,7 @@ class Home extends Component {
               <Statistic
                 title="Receitas"
                 value={this.props.recipes}
-                valueColor="#3f8600"
+                valueColor={colors.RECIPE_COLOR}
                 prefix={<Icon type="arrow-up" />}
                 formatter={value => (
                   <AnimatedCurrency
@@ -42,7 +43,7 @@ class Home extends Component {
               <Statistic
                 title="Despesas"
                 value={this.props.expenses}
-                valueColor="#cf1322"
+                valueColor={colors.EXPENSE_COLOR}
                 prefix={<Icon type="arrow-down" />}
                 formatter={value => (
                   <AnimatedCurrency
@@ -58,7 +59,7 @@ class Home extends Component {
               <Statistic
                 title="Balanço do Mês"
                 value={this.props.recipes - this.props.expenses}
-                valueColor="#009688"
+                valueColor={colors.BLUE_PRIMARY}
                 prefix={<Icon type="arrow-right" />}
                 formatter={value => (
                   <AnimatedCurrency

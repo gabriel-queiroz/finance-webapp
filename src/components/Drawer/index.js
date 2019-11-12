@@ -14,6 +14,7 @@ import ModalTransaction from 'components/ModalTransaction';
 import { Creators as transactionsCreators } from 'store/ducks/transactionsReducer';
 import { Creators as categoriesCreators } from 'store/ducks/categoriesReducer';
 import { Creators as accountsCreators } from 'store/ducks/accountsReducer';
+import { colors } from 'styles';
 import ModalTransactionDelete from '../ModalTransactionDelete';
 import {
   Container,
@@ -120,14 +121,14 @@ class Dashboard extends React.Component {
           <ModalTransaction />
           <ModalTransactionDelete />
           <Fab
-            mainButtonStyles={{ backgroundColor: '#1890ff' }}
+            mainButtonStyles={{ backgroundColor: colors.BLUE_PRIMARY }}
             icon={<Icon type="plus" />}
           >
             <Action
               onClick={() =>
                 this.props.openModalTransation(ModalTransactionTypes.RECIPE)
               }
-              style={{ backgroundColor: 'green' }}
+              style={{ backgroundColor: colors.RECIPE_COLOR }}
               text="Nova Receita"
             >
               <Icon type="plus" />
@@ -136,7 +137,7 @@ class Dashboard extends React.Component {
               onClick={() =>
                 this.props.openModalTransation(ModalTransactionTypes.EXPENSE)
               }
-              style={{ backgroundColor: 'red' }}
+              style={{ backgroundColor: colors.EXPENSE_COLOR }}
               text="Nova Despesa"
             >
               <Icon type="minus" />

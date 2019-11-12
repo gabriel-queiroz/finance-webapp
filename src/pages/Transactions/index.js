@@ -7,6 +7,8 @@ import { bindActionCreators } from 'redux';
 import moment from 'moment';
 import { Creators as modalTransactionCreators } from 'store/ducks/modalTransactionReducer';
 import { Creators as modalTransactionDeleteCreators } from 'store/ducks/modalTransactionDeleteReducer';
+import { colors } from 'styles';
+import { TransactionValue } from './styles';
 
 class Transactions extends Component {
   constructor(props) {
@@ -49,18 +51,17 @@ class Transactions extends Component {
           title: 'Valor',
           dataIndex: 'value',
           key: 'value',
-          render: text => {
+          render: (text, transaction) => {
             let value = parseFloat(text);
-            const isNegative = value < 0;
             value = Math.abs(value);
             value = value.toLocaleString('pt-br', {
               style: 'currency',
               currency: 'BRL',
             });
             return (
-              <span style={isNegative ? { color: 'red' } : { color: 'blue' }}>
+              <TransactionValue type={transaction.category.type}>
                 {value}
-              </span>
+              </TransactionValue>
             );
           },
         },
@@ -84,7 +85,7 @@ class Transactions extends Component {
                   style={{
                     fontSize: '20px',
                     marginRight: '10px',
-                    color: '#1890ff',
+                    color: colors.BLUE_PRIMARY,
                   }}
                 />
               </button>
@@ -94,7 +95,7 @@ class Transactions extends Component {
               >
                 <Icon
                   type="delete"
-                  style={{ fontSize: '20px', color: 'red' }}
+                  style={{ fontSize: '20px', color: colors.EXPENSE_COLOR }}
                 />
               </button>
             </>

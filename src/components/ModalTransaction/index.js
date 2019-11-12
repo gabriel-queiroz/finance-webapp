@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Modal, Row, Col, Input, Form, DatePicker, Select } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
-
 import moment from 'moment';
 import { ThemeProvider } from 'styled-components';
 import {
@@ -17,6 +16,7 @@ import {
   ModalHeaderIconClose,
 } from './styles';
 import 'moment/locale/pt-br';
+import { colors } from 'styles';
 
 const { Option } = Select;
 
@@ -83,8 +83,8 @@ const ModalTransaction = ({
       <ThemeProvider
         theme={
           transactionType === ModalTransactionTypes.RECIPE
-            ? { primary: 'green' }
-            : { primary: 'red' }
+            ? { primary: colors.RECIPE_COLOR }
+            : { primary: colors.EXPENSE_COLOR }
         }
       >
         <Modal
